@@ -28,14 +28,21 @@ playful, and interactive manner.<p>
 
 ### Advanced Feature :
 
-• Reward and Recognition System: In order to make learning joyful for the students, a reward
+<strong>• Reward and Recognition System :</strong><br>
+<pre>
+<h3>In order to make learning joyful for the students, a reward
 and recognition system can be made. The recognition system traces the time spent by the
 student on the portal and their consistency in solving problems to award them with virtual
 coins and badges. The coins can then be used to redeem certain benefits from teachers like
 extra computer time, free chocolates etc, and a leader board of students on the basis of
-coins and badges can also be prepared.<br>
-• Discussion Forum: A discussion forum can also be developed where the students can ask their
+coins and badges can also be prepared.</h3>
+</pre>
+<br>
+<strong>• Discussion Forum :</strong> 
+<pre>
+<h3>A discussion forum can also be developed where the students can ask their
 questions and get it answered by any of their peers. The students who are able to solve the
 doubts of their peers are also rewarded with virtual coins. This will enhance peer to peer
-learning among students.<br>
+learning among students.</h3>
+</pre>
 <hr>
