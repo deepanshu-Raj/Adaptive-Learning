@@ -11,7 +11,7 @@ Innodev-2k20
  - Deepanshu Raj
 </h3>
 </pre>
-<hr>
+
 ### Project Details :
 
 <p>Due to the COVID-19 pandemic, all schools are closed suddenly leaving Mrs. Ojha wondering how
