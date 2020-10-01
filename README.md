@@ -20,12 +20,14 @@ learning application that will help Ash Jr. to learn different topics in an enga
 playful, and interactive manner.<p>
 
 ### Basic Feature :
-
-• Login/Signup facility for students with mail verification<br>
-• Reset password using SMS OTP or mail<br>
-• ChatBot based topic wise learning<br>
-• Interactive Teacher’s Dashboard<br>
-
+<pre>
+<h3>
+- Login/Signup facility for students with mail verification<br>
+- Reset password using SMS OTP or mail<br>
+- ChatBot based topic wise learning<br>
+- Interactive Teacher’s Dashboard<br>
+</h3>
+</pre>
 ### Advanced Feature :
 
 <strong>• Reward and Recognition System :</strong><br>
