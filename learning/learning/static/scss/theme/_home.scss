@@ -1,0 +1,813 @@
+//--------- Start About Area -------------//
+.about-area {
+	.about-left {
+		@media (max-width: 991px) {
+			margin-bottom: 50px;
+		}
+	}
+}
+
+.about-right {
+	h1 {
+		margin-bottom: 30px;
+		color: $black;
+		@media (max-width: 991px) {
+			font-size: 35px;
+			margin-bottom: 25px;
+		}
+		@media (max-width: 576px) {
+			font-size: 30px;
+		}
+		br {
+			@media (max-width: 991px) {
+				display: none;
+			}
+		}
+	}
+	p {
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+//--------- End About Area -------------//
+//--------- Feature Area -------------//
+.feature-area {
+	margin-top: -210px;
+	@media (max-width: 1680px) and (min-width: 1200px) {
+		margin-top: -110px;
+	}
+	@media (max-width: 1200px) and (min-width: 991px) {
+		display: none;
+	}
+	@media (max-width: 991px) {
+		margin-top: 0px;
+	}
+	.container-fluid {
+		padding-left: 50px;
+		@media (min-width: 1921px) {
+			max-width: 1140px;
+			padding-left: 0;
+			.col-lg-2.col-md-6 {
+				-ms-flex: 0 0 16.666667%;
+				flex: 0 0 22.666667%;
+				max-width: 22.666667%;
+			}
+		}
+		@media (max-width: 767px) {
+			padding-left: 15px;
+		}
+	}
+}
+
+.feature-item {
+	margin: 30px 0px;
+	border-right: 1px solid rgba(130, 139, 178, 0.2);
+	padding-right: 20px;
+	i {
+		font-size: 30px;
+		color: $text-color;
+	}
+	h4 {
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+	p {
+		margin-bottom: 0px;
+	}
+}
+
+//-------- End Feature Area css ----------/
+/* Start Popular Courses Area
+=========================================================================================== */
+
+.popular-course-area {
+	.container-fluid {
+		padding-left: 21%;
+		padding-right: 0;
+		@media (min-width: 1921px) {
+			max-width: 1140px;
+			padding-left: 15px;
+		}
+		@media (max-width: 1665px) {
+			max-width: 1140px;
+			padding-left: 15px;
+		}
+		@media (max-width: 1199px) {
+			max-width: 960px;
+		}
+		@media (max-width: 991px) {
+			padding-right: 15px;
+		}
+		@media (max-width: 768px) {
+			max-width: 720px;
+		}
+	}
+	.section-title {
+		margin-right: 0;
+	}
+	.owl-stage {
+		padding-left: 0 !important;
+	}
+	.owl-controls {
+		position: absolute;
+		top: -95px;
+		right: 27%;
+		@media (max-width: 991px) {
+			display: none;
+		}
+	}
+	.owl-nav {
+		display: -ms-flexbox;
+		display: flex;
+		.owl-prev {
+			padding-right: 20px;
+		}
+		.owl-prev,
+		.owl-next {
+			img {
+				opacity: .3;
+				@include transition();
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+.single-popular-course {
+	.details {
+		padding: 40px 30px;
+		background: $offwhite;
+	}
+	.thumb {
+		overflow: hidden;
+		img {
+			width: 100%;
+			@include transition();
+		}
+	}
+	.name {
+		text-transform: uppercase;
+		font-size: 12px;
+		font-weight: 500;
+	}
+	.value {
+		color: $title-color;
+		font-weight: 700;
+	}
+	p {
+		margin-bottom: 0;
+	}
+	h4 {
+		line-height: 27px;
+		@include transition();
+	}
+	a {
+		color: $title-color;
+	}
+	.bottom {
+		.list {
+			li {
+				display: inline-block;
+				a {
+					color: #ebb35e;
+					font-size: 14px;
+				}
+			}
+		}
+		p {
+			font-size: 13px;
+			font-weight: 500;
+		}
+	}
+	&:hover {
+		cursor: pointer;
+		.thumb {
+			img {
+				cursor: pointer;
+				transform: scale(1.05);
+			}
+		}
+		h4 {
+			color: $primary-color;
+		}
+	}
+}
+
+/* End Popular Courses Area
+=========================================================================================== */
+
+/* Start Video Area
+=========================================================================================== */
+
+.video-area {
+	background: url(../img/video-area-bg.png) no-repeat center;
+	@media (max-width: 991px) {
+		background: #828bb2;
+		padding: 60px 0px;
+	}
+	.video-part {
+		position: relative;
+		.overlay {
+			background: rgba(0, 0, 0, 0.3);
+		}
+		.popup-youtube {
+			position: absolute;
+			left: 0px;
+			text-align: center;
+			width: 100%;
+			top: 50%;
+			@include transform(translateY(-50%));
+		}
+	}
+	.play-icon {
+		width: auto !important;
+		margin: auto;
+	}
+	.video-left {
+		padding-bottom: 151px;
+		@media (max-width: 991px) {
+			padding-bottom: 0px;
+		}
+	}
+	.owl-controls {
+		position: relative;
+		bottom: -100px;
+		@media (max-width: 991px) {
+			display: none;
+		}
+		.owl-nav {
+			display: -ms-flexbox;
+			display: flex;
+		}
+		.owl-prev {
+			padding-right: 20px;
+		}
+		.owl-prev,
+		.owl-next {
+			@include filter(brightness(1) invert(1));
+			@include transition();
+			&:hover {
+				@include filter(brightness(0) invert(1));
+			}
+		}
+	}
+}
+
+/* End Video Area
+=========================================================================================== */
+
+//--------- Feature Area -------------//
+.other-feature-area,
+.blog-post-area {
+	.section-title {
+		p {
+			max-width: 300px;
+		}
+	}
+}
+.other-feature-area {
+	padding-top: 100px;
+	@media (max-width: 991px) {
+		padding-top: 40px;
+	}
+	.mt--160,
+	.mt--260 {
+		@media (max-width: 991px) {
+			margin-top: 0;
+		}
+	}
+}
+.other-feature-item {
+	padding: 50px 40px;
+	background: #f2f3f7;
+	margin-bottom: 30px;
+	@include transition();
+	@media (max-width: 1024px) {
+		padding: 50px 30px;
+	}
+	i {
+		font-size: 36px;
+		color: $title-color;
+		@include transition();
+	}
+	h4 {
+		margin-top: 30px;
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+	p {
+		margin-bottom: 0px;
+	}
+	&:hover {
+		background: $white;
+		box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.08);
+		i {
+			color: $primary-color;
+		}
+	}
+}
+
+//-------- End Feature Area css ----------/
+//--------- Testimonials Area -------------//
+.testimonials-area {
+	position: relative;
+	.owl-controls {
+		position: absolute;
+		bottom: 10px;
+		left: 51.5%;
+		@include transform(translateX(-50%));
+		@media (max-width: 991px) {
+			display: none;
+		}
+		.owl-nav {
+			display: -ms-flexbox;
+			display: flex;
+		}
+		.owl-next {
+			@include filter(brightness(0) invert(1));
+		}
+		.owl-prev {
+			padding-right: 20px;
+			@include filter(brightness(1) invert(1));
+		}
+	}
+}
+
+.testi-slider {
+	.testi-item {
+		img {
+			width: auto;
+		}
+	}
+}
+
+.testi-item {
+	margin-bottom: 50px;
+	h4 {
+		font-size: 18px;
+		margin-top: 40px;
+		margin-bottom: 10px;
+	}
+	.list {
+		margin-bottom: 35px;
+		li {
+			display: inline-block;
+			a {
+				color: #ffc000;
+				font-size: 14px;
+			}
+		}
+	}
+	.text {
+		p {
+			font-size: 20px;
+			margin-bottom: 0;
+			line-height: 32px;
+			font-style: italic;
+			@media (max-width: 575px) {
+				font-size: 16px;
+			}
+		}
+	}
+	p {
+		margin-bottom: 0;
+	}
+}
+
+//--------- End Testimonials Area -------------//
+//--------- Start Registration Area -------------//
+.registration-area {
+	background: url(../img/registration-bg.png) no-repeat center;
+	padding: 157px 0px;
+	@media (max-width: 991px) {
+		padding: 60px 0px;
+		background: $primary-color;
+	}
+	.section-title {
+		padding-bottom: 0;
+	}
+	.course-form-section {
+		background: transparent;
+		text-align: center;
+		padding: 70px 35px;
+		box-shadow: 0px 0px 50px rgba(185, 55, 223, 0.45);
+		@media (max-width: 991px) {
+			margin-top: 50px;
+		}
+		@media (max-width: 575px) {
+			padding: 60px 0px;
+		}
+		h3 {
+			font-size: 24px;
+			margin-bottom: 5px;
+		}
+		.course-form-area {
+			.form-control {
+				background: transparent;
+				border: 0;
+				border-bottom: 1px solid #828bb2;
+				padding: 20px;
+				font-size: 13px;
+				border-radius: 0px;
+				color: $white;
+				&:focus {
+					outline: none;
+					box-shadow: none;
+				}
+			}
+		}
+		input {
+			@include placeholder {
+				color: rgba(255, 255, 255, 0.4);
+				text-transform: uppercase;
+			}
+		}
+		.btn {
+			font-size: 12px;
+			color: $white;
+			line-height: 50px;
+			padding: 0 104px;
+			border: 0px;
+			font-weight: 700;
+			margin-top: 20px;
+			@extend .gradient-bg;
+			border-radius: 0px;
+		}
+	}
+}
+//--------- End Registration Area -------------//
+//--------- Start Blog Post Area -------------//
+.blog-post-area {
+	.container-fluid {
+		padding-left: 21%;
+		@media (min-width: 1921px) {
+			max-width: 1140px;
+			padding-left: 0;
+		}
+		@media (max-width: 1665px) {
+			max-width: 1140px;
+			padding-left: 15px;
+		}
+		@media (max-width: 1199px) {
+			max-width: 960px;
+		}
+		@media (max-width: 768px) {
+			max-width: 720px;
+		}
+	}
+	.mt--160 {
+		@media (max-width: 991px) {
+			margin-top: 0;
+		}
+		@media (max-width: 767px) {
+			margin-top: 50px;
+		}
+	}
+	.mt--260 {
+		@media (max-width: 991px) {
+			margin-top: 50px;
+		}
+	}
+	.single-blog-post {
+		position: relative;
+		color: $white;
+		@media (max-width: 991px) {
+			margin-bottom: 30px;
+		}
+		.overlay {
+			background: rgba(0, 0, 0, 0.5);
+		}
+		.top-text {
+			position: absolute;
+			top: -30px;
+			right: 30px;
+			background: #828bb2;
+			padding: 30px;
+			text-align: center;
+			@media (min-width: 1921px) {
+				top: -60px;
+			}
+			p {
+				font-size: 12px;
+				margin-bottom: 0;
+				text-transform: uppercase;
+			}
+		}
+		.text {
+			min-width: 350px;
+			position: absolute;
+			top: 60%;
+			left: 45%;
+			@include transform(translate(-50%, -50%));
+			@media (min-width: 1921px) {
+				min-width: 210px;
+				max-width: 210px;
+			}
+			@media (max-width: 1680px) and (min-width: 1200px) {
+				left: 48%;
+				top: 68%;
+				min-width: 250px;
+			}
+			@media (max-width: 1199px) and (min-width: 992px) {
+				min-width: 250px;
+				max-width: 250px;
+				left: 52%;
+				top: 70%;
+			}
+			@media (max-width: 991px) {
+				left: 60%;
+			}
+			@media (max-width: 575px) {
+				min-width: 250px;
+			}
+			h4 {
+				margin-bottom: 25px;
+				@media (max-width: 1680px) and (min-width: 992px) {
+					margin-bottom: 15px;
+				}
+				@media (max-width: 991px) {
+					margin-bottom: 10px;
+				}
+			}
+			p {
+				@media (min-width: 1921px) {
+					display: none;
+				}
+				@media (max-width: 1199px) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+//--------- Start Blog Post Area -------------//
+
+/* Start Courses Details Area css
+============================================================================================ */
+
+.course-details-area {
+	.title {
+		font-size: 21px;
+		border: none;
+		cursor: pointer;
+		margin-top: 40px;
+		border-bottom: 1px solid #eeeeee;
+		position: relative;
+		padding-bottom: 10px;
+		margin-bottom: 22px;
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: -1px;
+			height: 1px;
+			width: 74px;
+			background: $primary-color;
+		}
+	}
+}
+
+.course-details-left {
+	.content-wrapper {
+	}
+	.content {
+	}
+	.course-list {
+		margin-bottom: 0;
+		@media (max-width: 575px) {
+			padding-left: 0;
+		}
+		li {
+			list-style: none;
+			margin-bottom: 20px;
+			.btn {
+				background: $offwhite;
+				color: $text-color;
+				box-shadow: none;
+				font-size: 12px;
+				height: 32px;
+				line-height: 32px;
+				padding: 0 20px;
+				&:hover {
+					@extend .gradient-bg;
+					color: $white;
+					box-shadow: 0px 10px 20px rgba(108, 39, 255, 0.3);
+				}
+				@media (max-width: 575px) {
+					min-width: 100px;
+					font-size: 10px;
+					padding: 0 10px;
+				}
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.right-contents {
+	@media (max-width: 991px) {
+		margin-top: 50px;
+	}
+	.btn.enroll {
+		@extend .gradient-bg;
+		color: $white;
+		line-height: 48px;
+		border-radius: 0px;
+		padding: 0px 32px;
+		font-size: 12px;
+		font-weight: 500;
+		text-transform: uppercase;
+		@include transition();
+		@media (max-width: 991px) {
+			margin-top: 20px;
+		}
+		&:hover {
+			box-shadow: 0px 10px 20px rgba(108, 39, 255, 0.3);
+		}
+	}
+	ul {
+		padding-left: 0;
+		li {
+			list-style: none;
+			background: $offwhite;
+			padding: 10px 22px;
+			margin-bottom: 10px;
+			a {
+				color: $text-color;
+				text-align: left;
+				p {
+					margin-bottom: 0px;
+				}
+			}
+			.or {
+				color: $title-color;
+			}
+		}
+	}
+	.enroll {
+		margin-top: 10px;
+		width: 100%;
+	}
+	.reviews {
+		span,
+		.star {
+			width: 31%;
+			margin-bottom: 10px;
+		}
+	}
+	.avg-review {
+		background: #eeeeee;
+		text-align: center;
+		color: $white;
+		font-size: 14px;
+		font-weight: 600;
+		padding: 20px 0px;
+		span {
+			font-size: 18px;
+			color: $primary-color;
+		}
+		@media (max-width: 991px) {
+			margin-bottom: 20px;
+		}
+	}
+	.single-reviews {
+		.thumb {
+			@media (max-width: 1024px) {
+				margin-right: 10px;
+			}
+		}
+		h5 {
+			display: inline-flex;
+			@media (max-width: 1024px) {
+				display: block;
+			}
+			.star {
+				margin-left: 10px;
+				@media (max-width: 1024px) {
+					margin: 10px 0;
+				}
+			}
+		}
+	}
+	.feedeback {
+		margin-top: 30px;
+		textarea {
+			resize: none;
+			height: 130px;
+			background: $offwhite;
+			&:focus {
+				box-shadow: none;
+			}
+		}
+	}
+	.star {
+		.checked {
+			color: #ebb35e;
+		}
+	}
+	.comments-area {
+		padding: 0;
+		border: 0;
+		background: transparent;
+		.star {
+			margin-left: 20px;
+		}
+	}
+}
+
+/* End  Courses Details Area css
+  ============================================================================================ */
+
+//----------- Start Contact Area -------------//
+.contact-page-area {
+	.map-wrap {
+		margin-bottom: 120px;
+		@media (max-width: 991px) {
+			margin-bottom: 50px;
+		}
+	}
+	.contact-btns {
+		font-size: 18px;
+		font-weight: 600;
+		text-align: center;
+		padding: 40px;
+		color: $white;
+		margin-bottom: 30px;
+		&:hover {
+			color: $white;
+		}
+	}
+	.form-area {
+		.form-control {
+			&:focus {
+				box-shadow: none !important;
+				border-color: #ced4da !important;
+			}
+		}
+		input {
+			padding: 15px;
+			height: 40px;
+			line-height: 40px;
+		}
+		input,
+		textarea {
+			border-radius: 0;
+			font-size: 13px !important;
+		}
+		textarea {
+			height: 160px;
+			margin-top: 0px;
+			padding: 15px;
+			resize: none;
+		}
+		.btn {
+			@extend .gradient-bg;
+			color: $white;
+			line-height: 48px;
+			border-radius: 0px;
+			padding: 0px 32px;
+			font-size: 12px;
+			font-weight: 500;
+			text-transform: uppercase;
+			@include transition();
+			@media (max-width: 991px) {
+				margin-top: 20px;
+			}
+			&:hover {
+				box-shadow: 0px 10px 20px rgba(108, 39, 255, 0.3);
+			}
+		}
+		.form-group {
+			@media (max-width: 992px) {
+				margin-bottom: 0;
+			}
+		}
+	}
+	.address-wrap {
+		@media (max-width: 991px) {
+			margin-bottom: 30px;
+		}
+		.single-contact-address {
+			margin-bottom: 8px;
+			h5 {
+				font-weight: 600;
+				font-size: 16px;
+				margin-bottom: 5px;
+			}
+			.lnr {
+				font-size: 20px;
+				font-weight: 500;
+				color: $primary-color;
+				margin-right: 30px;
+			}
+		}
+	}
+}
+
+//----------- End Contact Area -------------//

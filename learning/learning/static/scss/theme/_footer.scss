@@ -1,0 +1,114 @@
+//--------- start footer Area -------------//
+.footer-area {
+	padding: 339px 0px 120px;
+	background: url(../img/footer-bg.png) no-repeat center;
+	@media (max-width: 991px) {
+		background: $title-color;
+		padding: 60px 0px;
+	}
+	.single-footer-widget {
+		@media (max-width: 991px) {
+			margin-bottom: 30px;
+		}
+		h4 {
+			color: $white;
+			margin-bottom: 35px;
+			@media (max-width: 1024px) {
+				font-size: 18px;
+			}
+			@media (max-width: 991px) {
+				margin-bottom: 15px;
+			}
+		}
+		ul {
+			li {
+				margin-bottom: 15px;
+				a {
+					@include transition();
+					color: $text-color;
+					&:hover {
+						color: $white;
+					}
+				}
+			}
+		}
+		.form-wrap {
+			margin-top: 25px;
+		}
+		input {
+			height: 40px;
+			border: none;
+			width: 70% !important;
+			font-weight: 400;
+			background: #363a4b;
+			color: $white;
+			padding-left: 20px;
+			border-radius: 0;
+			font-size: 14px;
+			padding: 10px;
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
+			@include placeholder {
+				padding-left: 10px;
+				color: #828bb2;
+			}
+		}
+		.click-btn {
+			@extend .gradient-bg;
+			color: $white;
+			border-radius: 0;
+			border-top-left-radius: 0px;
+			border-bottom-left-radius: 0px;
+			padding: 8px 12px;
+			border: 0;
+			font-size: 12px;
+			font-weight: 500;
+			position: relative;
+			left: -50px;
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
+		}
+	}
+	.footer-bottom {
+		margin-top: 90px;
+		@media (max-width: 991px) {
+			margin-top: 20px;
+		}
+		p {
+			color: $white;
+		}
+		a,
+		span {
+			color: $primary-color2;
+		}
+		span {
+			font-weight: 700;
+		}
+		.footer-social {
+			text-align: center;
+			@media (max-width: 991px) {
+				text-align: left;
+				margin-top: 30px;
+			}
+			a {
+				background: #363a4b;
+				margin-left: 5px;
+				width: 40px;
+				color: $white;
+				display: inline-grid;
+				text-align: center;
+				height: 40px;
+				align-content: center;
+				@include transition();
+				&:hover {
+					@extend .gradient-bg;
+				}
+			}
+		}
+	}
+}
+//--------- end footer Area -------------//
