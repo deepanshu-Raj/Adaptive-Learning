@@ -1,6 +1,6 @@
 # GETTING STARTED
 First clone the project and create a new virtual env, then install all the modules using the requirements.txt file.<br>
-All the urls will be "http://127.0.0.1:8000/<app_name>/<fucntion name>".<br>
+All the urls will start with "http://127.0.0.1:8000/<app_name>/<fucntion name>".<br>
 Uncomment your app's url in learning's urls.py file.<br>
 Add aap_name='<app_name>' in each of your urls.py file after importing all the required modules.
 
