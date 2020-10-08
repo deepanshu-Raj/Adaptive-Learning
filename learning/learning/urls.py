@@ -25,7 +25,7 @@ urlpatterns = [
     path('',home, name='home'),
     # path('accounts/', include('accounts.urls', namespace='accounts')),
     # path('chatbot/', include('chatbot.urls', namespace='chatbot')),
-    # path('courses/', include('courses.urls', namespace='courses')),
+    path('courses/', include('courses.urls', namespace='courses')),
     # path('discussions/', include('discussions.urls', namespace='discussions')),
     # path('quizzes/', include('quizzes.urls', namespace='quizzes')),
 ]

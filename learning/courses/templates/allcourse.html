@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="search-input col-md-6" >
+    <div class="col-lg-12">
+          <h2 style="color:grey">
+            Search for specific course
+          </h2>
+        </div>
+      <div class="container">
+        <form class="d-flex justify-content-between" method="GET" action="{% url 'courses:allcourse' %}">
+          <input type="text" class="form-control" id="search-input" placeholder="Search Here" name="q" value="{{ request.GET.q }}" />
+          <i class="icon-material-outline-search "></i>
+        </form>
+      </div>
+    </div>
+<!--<div class="col-md-4">-->
+<!--                <div class="sidebar-widget margin-bottom-40">-->
+<!--                    <div class="input-with-icon">-->
+<!--                        <form class="form-inline my-2 my-lg-0" method="GET" action="">-->
+<!--                            <input id="autocomplete-input" type="text" placeholder="Search Material" name="q" value="{{ request.GET.q }}">-->
+<!--                            <i class="icon-material-outline-search "></i>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--         </div>-->
+<br><br>
+<div class="col-lg-12">
+          <h2>
+            Popular Courses Available Right Now
+          </h2>
+        </div>
+<br><br>
+<div class="container-fluid">
+    <div class="owl-carousel popuar-course-carusel">
+    {% for cour in course %}
+
+        <div class="single-popular-course">
+          <div class="thumb">
+            <img width="100px" height="200px" src="{{ cour.img.url }}" >
+          </div>
+          <div class="details">
+            <div class="d-flex justify-content-between mb-20">
+              <p class="name">{{ cour.name }}</p>
+
+              <p class="value">{{cour.author}}</p>
+            </div>
+            <a href="#">
+              <h4>{{ cour.subject }}</h4>
+            </a>
+          </div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
