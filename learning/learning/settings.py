@@ -131,3 +131,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'learning/static/')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_URL = 'courses:allcourse'
