@@ -20,6 +20,7 @@ class Material(models.Model):
     course=models.ForeignKey(Course,on_delete=models.CASCADE)
     type=models.CharField(max_length=20)
     date=models.DateTimeField()
+    file = models.FileField(upload_to='material/', blank=True, null=True)
     desc=models.CharField(max_length=60)
 
 

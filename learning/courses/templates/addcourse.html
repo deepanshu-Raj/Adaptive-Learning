@@ -1,9 +1,103 @@
 {% extends 'base.html' %}
-
+{% block banner %}
+<h1 class="text-white">
+            Add Course or Material
+          </h1>
+          <p class="mx-auto text-white  mt-20 mb-40">
+            Add a new course to our courses or add a material to an existing course
+          </p>
+{% endblock %}
 {% block content %}
+<br><br>
+<!-- Material form contact -->
+<div class="container">
+    <div class="row">
+    <div class="col-md-6">
+<div class="card">
 
+    <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Add a course</strong>
+    </h5>
 
-add course
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
 
+        <!-- Form -->
+        <form class="text-center" style="color: #757575;"  action="{% url 'courses:addcourse' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Name -->
+            <div class="md-form mt-3">
+                <input type="text" id="materialContactFormName" class="form-control" name="name" required>
+                <label for="materialContactFormName">Course Name</label>
+            </div>
+
+            <!-- E-mail -->
+            <div class="md-form">
+                <input type="text" id="materialContactFormEmail" class="form-control" name="subject" required>
+                <label for="materialContactFormEmail">Subject</label>
+            </div>
+
+            <!--Message-->
+            <div class="md-form">
+                <textarea id="materialContactFormMessage" class="form-control md-textarea" rows="3" name="desc" required></textarea>
+                <label for="materialContactFormMessage">Description</label>
+            </div>
+
+            <!-- Copy -->
+            <label>Select an image for course</label>
+            <input type="file" name="image" required>
+
+            <!-- Send button -->
+            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Create Course</button>
+
+        </form>
+        <!-- Form -->
+
+    </div>
+
+</div>
+</div>
+    <div class="col-md-6">
+<div class="card">
+
+    <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Add Material to a Course</strong>
+    </h5>
+
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+
+        <!-- Form -->
+        <form class="text-center" style="color: #757575;"  action="{% url 'courses:addmaterial' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Name -->
+
+        <h4>Select a course</h4>
+        <select name="course" id="inputState" required class="form-control">
+
+          {% for co in course %}
+        <option>{{ co.name }}</option>
+          {% endfor %}
+      </select>
+            <br><br><br>
+            <label>Select a file:   </label>
+            <input type="file" name="material" required>
+            <br><br>
+            <div class="md-form">
+                <textarea id="materialContactFormMessage" class="form-control md-textarea" rows="3" name="desc" required></textarea>
+                <label for="materialContactFormMessage">Description</label>
+            </div>
+            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Add material</button>
+
+        </form>
+        <!-- Form -->
+
+    </div>
+
+</div>
+</div>
+    </div>
+<!-- Material form contact -->
+</div>
 
 {% endblock %}
