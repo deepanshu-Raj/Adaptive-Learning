@@ -51,9 +51,9 @@
           </div>
           <div class="details">
             <div class="d-flex justify-content-between mb-20">
-              <p class="name">{{ cour.name }}</p>
+                <a href="{% url 'courses:detail' cour.id %}"> <p class="name">{{ cour.name }}</p>
 
-              <p class="value">{{cour.author}}</p>
+                    <p class="value">{{cour.author}}</p></a>
             </div>
             <a href="#">
               <h4>{{ cour.subject }}</h4>

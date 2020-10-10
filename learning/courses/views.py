@@ -43,3 +43,23 @@ def addmaterial(request):
     mat.save()
     cour = Course.objects.filter(author=request.user)
     return render(request, 'addcourse.html', {'course': cour})
+
+
+@login_required
+def detail(request,course_id):
+    cour = Course.objects.filter(pk=course_id).first()
+    taken = Enroll.objects.filter(student=request.user, course=cour).first()
+    if taken:
+        return render(request, 'detail.html',{'course':cour, 'taken':True})
+    return render(request, 'detail.html',{'course':cour, 'taken':False})
+
+
+@login_required
+def Enrollment(request, course_id):
+    cour = Course.objects.filter(pk=course_id).first()
+    enr = Enroll()
+    enr.course = cour
+    enr.student = request.user
+    enr.save()
+    cour = Course.objects.all()
+    return render(request, 'allcourse.html', {'course': cour})

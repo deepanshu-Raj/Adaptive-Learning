@@ -1,9 +1,62 @@
 {% extends 'base.html' %}
+{% block banner %}
+<h1 class="text-white">
+            {{ course.name }}
+          </h1>
+          <p class="mx-auto text-white  mt-20 mb-40">
+            By {{ course.author.username }}
+          </p>
+
+{% endblock %}
 
 {% block content %}
 
+<section class="course-details-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 course-details-left">
+                    <div class="main-image">
+                        <img class="img-fluid" src="{{ course.img.url }}" alt="">
+                    </div>
+                    <div class="content-wrapper">
+                        <h4 class="title">Subject</h4>
+                        <div class="content">
+                            {{ course.subject }}
+                            <br>
+                            <br>
+                        </div>
 
-add course
+                        <h4 class="title">Description</h4>
+                        <div class="content">
+                            {{ course.desc }}
+                        </div>
 
+                    </div>
+                </div>
+                <div class="col-lg-4 right-contents">
+                    <ul>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Teacher's name</p>
+                                <span class="or">{{ course.author.username }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Date </p>
+                                <span>{{ course.date }}</span>
+                            </a>
+                        </li>
+
+                    </ul>{% if taken == False %}
+                    <a href="#" class="btn text-uppercase enroll">Enroll the course</a>
+                    {% endif %}
+                    {% if taken == True %}
+                     <a href="#" class="btn text-uppercase enroll">Go to Course</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}
