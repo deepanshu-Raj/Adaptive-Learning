@@ -29,6 +29,7 @@ class Test(models.Model):
     date=models.DateTimeField()
     file=models.FileField(upload_to='test/')
 
+
 class Enroll(models.Model):
     student = models.ForeignKey(User, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)

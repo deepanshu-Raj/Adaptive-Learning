@@ -55,11 +55,19 @@ def detail(request,course_id):
 
 
 @login_required
-def Enrollment(request, course_id):
+def enrollment(request, course_id):
     cour = Course.objects.filter(pk=course_id).first()
     enr = Enroll()
     enr.course = cour
     enr.student = request.user
     enr.save()
-    cour = Course.objects.all()
-    return render(request, 'allcourse.html', {'course': cour})
+    material = Material.objects.filter(course=cour)
+    tests = Test.objects.filter(course=cour)
+    return render(request, 'courmat.html', {'course': cour, 'material': material, 'tests': tests})
+
+@login_required
+def courmat(request, course_id):
+    cour = Course.objects.filter(pk=course_id).first()
+    material = Material.objects.filter(course=cour)
+    tests = Test.objects.filter(course=cour)
+    return render(request,'courmat.html', {'course':cour, 'material': material, 'tests': tests})
