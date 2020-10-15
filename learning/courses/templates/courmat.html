@@ -31,30 +31,32 @@
                             {{ course.desc }}
                         </div>
 
+                        <h4 class="title">Course Material</h4>
+                        <div class="content">
+                            <ul class="course-list">
+                                {% for mat in material %}
+                                <li class="justify-content-between d-flex">
+                                    <p>{{ mat.desc }}</p>
+                                    <a class="btn text-uppercase" href="{{ mat.file.url }}">View</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        </div>
+                        <h4 class="title">Test and Quizzes</h4>
+                        <div class="content">
+                            <ul class="course-list">
+
+                                <li class="justify-content-between d-flex">
+                                    <p>test 1</p>
+                                    <a class="btn text-uppercase" href="">View</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 right-contents">
-                    <ul>
-                        <li>
-                            <a class="justify-content-between d-flex" href="#">
-                                <p>Teacher's name</p>
-                                <span class="or">{{ course.author.username }}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="justify-content-between d-flex" href="#">
-                                <p>Date </p>
-                                <span>{{ course.date }}</span>
-                            </a>
-                        </li>
 
-                    </ul>{% if taken == False %}
-                    <a href="{% url 'courses:enrollment' course.id %}" class="btn text-uppercase enroll">Enroll the course</a>
-                    {% endif %}
-                    {% if taken == True %}
-                     <a href="{% url 'courses:courmat' course.id %}" class="btn text-uppercase enroll">Go to Course</a>
-                    {% endif %}
-                </div>
             </div>
         </div>
     </section>
