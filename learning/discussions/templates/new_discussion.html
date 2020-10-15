@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block banner %}
+    <h1 class="text-white">
+                New Discussion Post
+    </h1>
+    <p class="mx-auto text-white  mt-20 mb-40">
+        Post your doubt or ask any question
+    </p>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+        <form action="/discussions/createPost" method="post">
+            {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" name='title' id="title" >
+                </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <input type="text" class="form-control" name='content' id="content">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+</div>
+
+{% endblock %}
