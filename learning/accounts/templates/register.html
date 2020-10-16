@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block banner %}
+<h1 class="text-white">
+            Register
+          </h1>
+          <p class="mx-auto text-white  mt-20 mb-40">
+            Create a new account
+          </p>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+    <div class="offset-lg-3 col-md-6">
+<div class="card">
+
+    <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Register</strong>
+    </h5>
+
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+
+        <!-- Form -->
+        <form class="text-center" style="color: #757575;"  action="{% url 'accounts:register' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Name -->
+            <div class="md-form mt-3">
+                <input type="text" id="materialContactFormName" class="form-control" name="name" required>
+                <label for="materialContactFormName">Name</label>
+            </div>
+
+            <!-- E-mail -->
+            <div class="md-form">
+                <input type="text" id="materialContactFormEmail" class="form-control" name="username" required>
+                <label for="materialContactFormEmail">Username</label>
+            </div>
+            <div class="md-form">
+                <input type="password" id="materialContactFormEmail" class="form-control" name="pass" required>
+                <label for="materialContactFormEmail">Password</label>
+            </div>
+            <div class="md-form">
+                <input type="password" id="materialContactFormEmail" class="form-control" name="cpass" required>
+                <label for="materialContactFormEmail">Confirm Password</label>
+            </div>
+            <div class="md-form">
+                <input type="email" id="materialContactFormEmail" class="form-control" name="mail" required>
+                <label for="materialContactFormEmail">Email</label>
+            </div>
+            <div class="md-form">
+                <input type="text" id="materialContactFormEmail" class="form-control" name="mob" required>
+                <label for="materialContactFormEmail">Contact No.</label>
+            </div>
+
+
+            <!--Message-->
+            <div class="md-form">
+                <textarea id="materialContactFormMessage" class="form-control md-textarea" rows="3" name="bio" required></textarea>
+                <label for="materialContactFormMessage">Bio</label>
+            </div>
+            <p>Please select your account type:</p>
+            <input type="radio" id="male" name="type" value="student">
+            <label for="male">Student</label><br>
+            <input type="radio" id="female" name="type" value="teacher">
+            <label for="female">Teacher</label><br>
+
+            <!-- Copy -->
+            <!-- Send button -->
+            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Create account</button>
+
+        </form>
+        <!-- Form -->
+
+    </div>
+
+</div>
+</div>
+    </div>
+</div>
+
+{% endblock %}
