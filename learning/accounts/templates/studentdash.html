@@ -43,7 +43,7 @@
                             <div class="module">
                                 <div class="module-head">
                                     <h3>
-                                        Course Added by You</h3>
+                                        Course You are enrolled</h3>
                                 </div>
                                 <br><br>
                                 <div class="module-body table">
@@ -64,7 +64,7 @@
                                                     Subject
                                                 </th>
                                                 <th>
-                                                    Go to course details
+                                                    Go to course
                                                 </th>
                                             </tr>
                                         </thead>
@@ -84,7 +84,7 @@
                                                    {{ cour.subject }}
                                                 </td>
                                                 <td class="center">
-                                                     <a class="btn text-uppercase" href="{% url 'accounts:coursedetail' cour.id %}">View</a>
+                                                     <a class="btn text-uppercase" href="{% url 'courses:detail' cour.id %}">View</a>
                                                 </td>
                                             </tr>
                                         {% endfor %}
