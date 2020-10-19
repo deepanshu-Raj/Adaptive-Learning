@@ -4,3 +4,4 @@ from .models import *
 
 
 admin.site.register(Userdetail)
+admin.site.register(Contact)

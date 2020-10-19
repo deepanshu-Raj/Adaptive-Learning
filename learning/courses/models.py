@@ -34,4 +34,6 @@ class Test(models.Model):
 class Enroll(models.Model):
     student = models.ForeignKey(User, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    date = models.DateTimeField(blank=True, null=True)
+    done = models.IntegerField(default=0, blank=True, null=True)
 

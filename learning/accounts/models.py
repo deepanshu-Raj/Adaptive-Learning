@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class Userdetail(models.Model):
     name = models.ForeignKey(User, on_delete=models.CASCADE)
+    fullname = models.CharField(max_length=30, blank=True, null=True)
     bio = models.CharField(max_length=100)
     mob = models.CharField(max_length=20)
     email = models.EmailField(max_length=30)
@@ -15,3 +16,12 @@ class Userdetail(models.Model):
 
     def __str__(self):
         return self.email
+
+class Contact(models.Model):
+    student = models.ForeignKey(User, related_name='student', on_delete=models.CASCADE)
+    teacher = models.ForeignKey(User, related_name='teacher', on_delete=models.CASCADE)
+    date = models.DateTimeField()
+    subject = models.CharField(max_length=50)
+    message = models.TextField(blank=True, null=True)
+
+

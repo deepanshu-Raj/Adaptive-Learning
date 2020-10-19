@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block banner %}
+<h1 class="text-white">
+            {{ course.name }}
+          </h1>
+          <p class="mx-auto text-white  mt-20 mb-40">
+            All details
+          </p>
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="span3">
+                        <div class="sidebar">
+
+                            <div class="module">
+                                <div class="module-head">
+                                    <h3>
+                                        Details of students who have taken the course</h3>
+                                </div>
+                                <br><br>
+                                <div class="module-body table">
+                                 <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display"
+                                        width="100%">
+                                     <col style="width:25%">
+	<col style="width:25%">
+	<col style="width:25%">
+                                     <col style="width:25%">
+								  <thead>
+									<tr>
+
+									  <th >Name</th>
+									  <th >Date of Taken</th>
+									  <th >Completed</th>
+                                        <th >Contact him</th>
+									</tr>
+								  </thead>
+								  <tbody>
+                                  {% for st in student %}
+									<tr>
+									  <td>{{ st.student.username }}</td>
+									  <td>{{ st.date }}</td>
+									  <td>{{ st.done }}</td>
+									  <td> <a class="btn text-uppercase" href="{% url 'accounts:contact' st.student.id %}">Contact</a></td>
+									</tr>
+                                  {% endfor %}
+
+								  </tbody>
+								</table>
+                                </div>
+                            </div>
+                            <!--/.module-->
+                        </div>
+                        <!--/.content-->
+                    </div>
+                    <!--/.span9-->
+                </div>
+            </div>
+            <!--/.container-->
+        </div>
+
+{% endblock %}

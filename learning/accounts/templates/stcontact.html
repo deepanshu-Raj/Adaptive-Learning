@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block banner %}
+    <h1 class="text-white">
+               Teacher's Remark
+    </h1>
+    <p class="mx-auto text-white  mt-20 mb-40">
+        All remarks
+    </p>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container my-3">
+    <h3>Recent Remarks</h3>
+    {% for post in allPost %}
+    
+    
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">Remark by {{post.teacher.username}} </strong>
+                <h3 class="mb-0">{{post.subject}}</h3>
+                <div class="mb-1 text-muted">{{post.date}}</div>
+                <p class="card-text mb-auto">{{post.content| truncatechars:60 }}</p>
+                <div class="my-2">
+                <a href="#" role="button" class="btn btn-primary">Continue reading</a>
+                </div>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+
+            </div>
+        </div> 
+
+
+    {% endfor %}
+</div>
+
+{% endblock %}
