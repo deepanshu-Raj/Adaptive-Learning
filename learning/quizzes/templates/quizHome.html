@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block banner %}
+    <h1 class="card-header info-color white-text text-center py-4">
+        <strong>Create Quiz</strong>
+    </h1>
+{% endblock %}
+{% block content %}
+<br><br><br>
+<div class="container">
+    <div class="container">
+        <h2 class="card-header info-color white-text text-center py-4">
+            <strong>Create a Quiz</strong>
+        </h2><br>
+        {% if message %}
+          <h2 class="card-header info-color text-center py-4">
+            <strong style="color: green;">{{ message }}</strong>
+          </h2><br><br>
+          <button class="btn btn-rounded btn-primary btn-block z-depth-0 my-4 waves-effect" type="button"><a href="{% url 'quizzes:qmain' %}" style="color: white;">+ Add Questions to the Quiz</a></button>
+        {% endif %}
+        <br><br>
+        <div class="card-body px-lg-5 pt-0">
+            <form action="{% url 'quizzes:qhome' %}" method="post" >
+                {% csrf_token %}
+
+                <div class="form-group row">
+                  <label for="disabledSelect" class="col-2 col-form-label">Subject</label>
+                  <div class="col-10">
+                  <select id="disabledSelect" class="form-control" name="info">
+                    <option>Select Subject</option>
+                    {% for course in courses %}
+                        <option id="{{ course.id }}">{{ course.name }}</option>
+                    {% endfor %}
+                  </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+                  <div class="col-10">
+                    <input class="form-control" type="datetime-local" value="YYYY-MM-DDTHH:MM:SS" id="example-datetime-local-input" name="created_on" required>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="example-text-input" class="col-2 col-form-label">Title</label>
+                  <div class="col-10">
+                    <input class="form-control" type="text" placeholder="Enter the title" id="example-text-input" name="title" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleTextarea">Description</label>
+                    <textarea class="form-control" id="exampleTextarea" rows="3" name="desc" placeholder="Enter the description of the assignment"></textarea>
+                </div>
+
+                <button class="btn btn-rounded btn-success btn-block z-depth-0 my-4 waves-effect" type="submit">Save</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
