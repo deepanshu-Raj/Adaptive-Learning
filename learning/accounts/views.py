@@ -22,13 +22,49 @@ def login(request):
     else:
         return render(request, 'login.html')
 
-
-def register(request):
+# Rgistration view - complete.
+def Register(request):
     if request.method == 'POST':
-        return render(request, 'register.html')
-    else:
-        return render(request, 'register.html')
+        UD = Userdetail()
 
+        user_list = []
+        for user in User.objects.values_list('username'):
+            user_list.append(user[0])
+
+        if request.POST['username'] in user_list:
+
+            # work - password belongs to this user verification is left!!
+            if request.POST['pass'] == request.POST['cpass']:
+                UD.name = User.objects.filter(username=request.POST['username'])[0]
+            else:
+                return render(request,'register.html',{
+                    'pwd':'(Incorrect Password Entered :Enter Correct Password !!)'
+                    })
+        else:
+            return render(request,'register.html',{
+                'user_msg':'(Please Enter Correct username!!)'
+                })
+
+
+        UD.fullname = request.POST['name']
+        UD.bio = request.POST['bio']
+        UD.email = request.POST['mail']
+        UD.mob = request.POST['mob']
+        
+        if request.POST['type'] == 'teacher':
+            UD.teacher = True
+        else:
+            UD.teacher = False
+
+        print('saved')    
+        #UD.save()
+        return render(request,'thanks.html',{
+            'message':'Bingo!! You have been Registered'
+            })    
+    else:
+        return render(request,'register.html',{
+
+            })
 
 def coursedetail(request,course_id):
     cour = Course.objects.filter(pk=course_id).first()
