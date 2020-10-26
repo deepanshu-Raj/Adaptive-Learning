@@ -25,7 +25,7 @@ class CreateQuiz_1(models.Model):
 	desc = models.TextField(null=True,blank=False)
 
 	def __str__(self):
-		return self.title+'-'+self.info.subject
+		return self.title
 
 	class Meta:
 		verbose_name_plural = 'Quiz Home'
@@ -41,7 +41,7 @@ class CreateQuiz_2(models.Model):
 	)
 
 	#data has been taken from the quiz home model.
-	data = models.ForeignKey(CreateQuiz_1,on_delete=models.CASCADE,null=True)
+	data = models.ForeignKey(CreateQuiz_1,on_delete=models.CASCADE,null=True,blank=True)
 	question = models.TextField(null=True,blank=False)
 	option1 = models.TextField(null=True,blank=False)
 	option2 = models.TextField(null=True,blank=False)
@@ -49,3 +49,14 @@ class CreateQuiz_2(models.Model):
 	option4 = models.TextField(null=True,blank=False)
 	answer = models.CharField(choices=CHOICES,max_length=1,null=True,blank=False)
 
+	class Meta:
+		verbose_name_plural = 'Quiz Main'
+
+
+class SubmitAssignment(models.Model):
+
+	data = models.ForeignKey(CreateAssignment,on_delete=models.CASCADE,null=True)
+	studentResponse = models.FileField(null=True,blank=False)
+
+	class Meta:
+		verbose_name_plural = 'Submit Assignment'
