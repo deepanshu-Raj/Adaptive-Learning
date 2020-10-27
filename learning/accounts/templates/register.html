@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block banner %}
-<h1 class="text-white">
+<h1 class="text-white" style="font-family: Roboto Mono Light">
             Register
           </h1>
           <p class="mx-auto text-white  mt-20 mb-40">
@@ -16,9 +16,9 @@
     <div class="offset-lg-3 col-md-6">
 <div class="card">
 
-    <h5 class="card-header info-color white-text text-center py-4">
+    <h3 class="card-header info-color white-text text-center py-4" style="font-family: Roboto Mono Light">
         <strong>Register</strong>
-    </h5>
+    </h3>
 
     <!--Card content-->
     <div class="card-body px-lg-5 pt-0">
@@ -28,45 +28,56 @@
             {% csrf_token %}
             <!-- Name -->
             <div class="md-form mt-3">
-                <label for="materialContactFormName">Name</label>
-                <input type="text" id="materialContactFormName" class="form-control" placeholder="Enter Your Full Name" name="name" required>
+                <label for="materialContactFormName">First Name</label>
+                <input type="text" id="materialContactFormName" class="form-control" placeholder="Enter Your First Name" name="first_name" required>
+            </div>
+
+            <div class="md-form mt-3">
+                <label for="materialContactFormName">Last Name</label>
+                <input type="text" id="materialContactFormName" class="form-control" placeholder="Enter Your Last Name" name="last_name" required>
             </div>
 
             <!-- E-mail -->
-            <div class="md-form">
+            <div class="md-form mt-3">
+                {%if user_exist %}
+                    <div class="alert alert-danger">
+                       <a class="close" href="#" data-dismiss="alert">×</a>
+                          {{ user_exist }}
+                    </div>
+                {% endif %}
                 <label for="materialContactFormEmail">Username</label>
                 <input type="text" id="materialContactFormEmail" class="form-control" placeholder="Enter your username" name="username" required>
-                {% if user %}
-                    <short class="text-muted"><strong>{{ user_msg }}</strong></short>
-                {% endif %}
             </div>
 
-            <div class="md-form">
+            <div class="md-form mt-3">
+                {%if message_password %}
+                    <div class="alert alert-danger">
+                       <a class="close" href="#" data-dismiss="alert">×</a>
+                          {{ message_password }}
+                    </div>
+                {% endif %}
                 <label for="materialContactFormEmail">Password</label>
                 <input type="password" id="materialContactFormEmail" class="form-control" placeholder="Enter your password" name="pass" required>
-                {% if pwd %}
-                    <short class="text-muted"><strong>{{ pwd }}</strong></short>
-                {% endif %}
             </div>
 
-            <div class="md-form">
+            <div class="md-form mt-3">
                 <label for="materialContactFormEmail">Confirm Password</label>
                 <input type="password" id="materialContactFormEmail" class="form-control" placeholder="Re-Enter your password" name="cpass" required>
             </div>
 
-            <div class="md-form">
+            <div class="md-form mt-3">
                 <label for="materialContactFormEmail">Email</label>
                 <input type="email" id="materialContactFormEmail" class="form-control" name="mail" placeholder="Enter your E-mail address : abc@tmail.com" required>
             </div>
 
-            <div class="md-form">
+            <div class="md-form mt-3">
                 <label for="materialContactFormEmail">Contact No.</label>
                 <input type="tel" id="materialContactFormEmail" class="form-control" name="mob" placeholder="Enter your phone number : +91-1234567892" required>
             </div>
 
 
             <!--Message-->
-            <div class="md-form">
+            <div class="md-form mt-3">
                 <label for="materialContactFormMessage">Bio</label>
                 <textarea id="materialContactFormMessage" class="form-control md-textarea" rows="3" name="bio" placeholder="Tell us something about Yourself" required></textarea>
             </div>

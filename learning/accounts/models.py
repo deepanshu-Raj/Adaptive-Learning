@@ -10,9 +10,9 @@ class Userdetail(models.Model):
     mob = models.CharField(max_length=20)
     email = models.EmailField(max_length=30)
     teacher = models.BooleanField()
-    city = models.CharField(max_length=30)
-    count = models.IntegerField()
-    plan = models.CharField(max_length=20)
+    city = models.CharField(max_length=30,null=True,blank=False)
+    count = models.IntegerField(null=True,blank=False)
+    plan = models.CharField(max_length=20,null=True,blank=False)
 
     def __str__(self):
         return self.email
