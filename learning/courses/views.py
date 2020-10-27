@@ -6,6 +6,13 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 import datetime
 
+from quizzes.models import *
+
+from quizzes.models import CreateAssignment
+
+from quizzes.models import SubmitAssignment
+
+
 def allcourse(request):
     query = request.GET.get('q', None)
     if query:
@@ -69,5 +76,25 @@ def enrollment(request, course_id):
 def courmat(request, course_id):
     cour = Course.objects.filter(pk=course_id).first()
     material = Material.objects.filter(course=cour)
-    tests = Test.objects.filter(course=cour)
-    return render(request,'courmat.html', {'course':cour, 'material': material, 'tests': tests})
+    assign = CreateAssignment.objects.filter(info=cour)
+    test = CreateQuiz_1.objects.filter(info=cour)
+    return render(request,'courmat.html', {'course':cour, 'material': material, 'tests': test, 'assign': assign})
+
+
+def show(request, file_id):
+    file = Material.objects.filter(pk=file_id).first()
+    return render(request, 'show.html', {'mat': file})
+
+def assignment(request,assign_id):
+    assign = CreateAssignment.objects.filter(pk=assign_id).first()
+    return render(request, 'assignment.html', {'assign': assign})
+
+def submit(request,assign_id):
+    assign = CreateAssignment.objects.filter(pk=assign_id).first()
+    sub = SubmitAssignment()
+    sub.studentResponse = request.FILES['work']
+    sub.data = assign
+    sub.student = request.user
+    sub.save()
+    assign = CreateAssignment.objects.filter(pk=assign_id).first()
+    return render(request, 'assignment.html', {'assign': assign})
