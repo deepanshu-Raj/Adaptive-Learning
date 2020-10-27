@@ -41,7 +41,7 @@ class CreateQuiz_2(models.Model):
 	)
 
 	#data has been taken from the quiz home model.
-	data = models.ForeignKey(CreateQuiz_1,on_delete=models.CASCADE,null=True,blank=True)
+	data = models.ForeignKey(CreateQuiz_1,on_delete=models.CASCADE,null=True)
 	question = models.TextField(null=True,blank=False)
 	option1 = models.TextField(null=True,blank=False)
 	option2 = models.TextField(null=True,blank=False)
@@ -60,3 +60,10 @@ class SubmitAssignment(models.Model):
 
 	class Meta:
 		verbose_name_plural = 'Submit Assignment'
+
+
+class SubmitQuiz(models.Model):
+
+	subject = models.ForeignKey(Course,on_delete=models.CASCADE,null = True)
+	title = models.ForeignKey(CreateQuiz_1,on_delete=models.CASCADE,null = True)
+	answer = models.CharField(max_length=20,null=True,blank=False)
