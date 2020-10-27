@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block banner %}
+    <h1 class="card-header info-color white-text text-center py-4">
+        <strong>Thank You for Contributing</strong>
+    </h1>
+{% endblock %}
+{% block content %}
+<br><br><br>
+<div class="container">
+    <div class="card">
+        <h2 class="card-header info-color text-center py-4">
+            <strong style="color: green;">{{ message }}</strong>
+        </h2>
+    </div>    
+</div>
+{% endblock %}

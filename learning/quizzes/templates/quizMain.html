@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block banner %}
+    <h1 class="card-header info-color white-text text-center py-4">
+        <strong>Add Questions</strong>
+    </h1>
+{% endblock %}
+{% block content %}
+<br><br><br>
+<div class="container">
+    <div class="container">
+        <h2 class="card-header info-color white-text text-center py-4">
+            <strong>Question</strong>
+        </h2>
+
+
+        <br><br>
+        <div class="card-body px-lg-5 pt-0">
+            <form action="{% url 'quizzes:qmain' %}" method="post" >
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="exampleTextarea">Question</label>
+                    <textarea class="form-control" id="exampleTextarea" rows="3" name="question" placeholder="Your Question Goes Here" required></textarea>
+                </div>
+
+                <div class="form-group row">
+                  <label for="exampleTextarea1" class="col-2 col-form-label">Option A</label>
+                  <div class="col-10">
+                  <textarea class="form-control" id="exampleTextarea1" rows="2" name="option1" placeholder="Option A" required></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="exampleTextarea2" class="col-2 col-form-label">Option B</label>
+                  <div class="col-10">
+                    <textarea class="form-control" id="exampleTextarea2" rows="2" name="option2" placeholder="Option B" required></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="exampleTextarea3" class="col-2 col-form-label">Option C</label>
+                  <div class="col-10">
+                    <textarea class="form-control" id="exampleTextarea3" rows="2" name="option3" placeholder="Option C" required></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="exampleTextarea4" class="col-2 col-form-label">Option D</label>
+                  <div class="col-10">
+                    <textarea class="form-control" id="exampleTextarea4" rows="2" name="option4" placeholder="Option D" required></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="exampleFormControlSelect2" class="col-2 col-form-label">Correct Option</label>
+                  <div class="col-10">
+                    <select class="form-control" id="exampleFormControlSelect2" name='answer' required>
+                      <option selected>Correct Option</option>
+                      <option>Option A</option>
+                      <option>Option B</option>
+                      <option>Option C</option>
+                      <option>Option D</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button class="btn btn-rounded btn-primary btn-block z-depth-0 my-4 waves-effect" type="submit" name="save" value="save">+ Save and Add Another</button>
+
+                <button class="btn btn-rounded btn-success btn-block z-depth-0 my-4 waves-effect" type="submit" name="exit" value="exit">+ Save and Exit</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

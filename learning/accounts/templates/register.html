@@ -28,38 +28,49 @@
             {% csrf_token %}
             <!-- Name -->
             <div class="md-form mt-3">
-                <input type="text" id="materialContactFormName" class="form-control" name="name" required>
                 <label for="materialContactFormName">Name</label>
+                <input type="text" id="materialContactFormName" class="form-control" placeholder="Enter Your Full Name" name="name" required>
             </div>
 
             <!-- E-mail -->
             <div class="md-form">
-                <input type="text" id="materialContactFormEmail" class="form-control" name="username" required>
                 <label for="materialContactFormEmail">Username</label>
+                <input type="text" id="materialContactFormEmail" class="form-control" placeholder="Enter your username" name="username" required>
+                {% if user %}
+                    <short class="text-muted"><strong>{{ user_msg }}</strong></short>
+                {% endif %}
             </div>
+
             <div class="md-form">
-                <input type="password" id="materialContactFormEmail" class="form-control" name="pass" required>
                 <label for="materialContactFormEmail">Password</label>
+                <input type="password" id="materialContactFormEmail" class="form-control" placeholder="Enter your password" name="pass" required>
+                {% if pwd %}
+                    <short class="text-muted"><strong>{{ pwd }}</strong></short>
+                {% endif %}
             </div>
+
             <div class="md-form">
-                <input type="password" id="materialContactFormEmail" class="form-control" name="cpass" required>
                 <label for="materialContactFormEmail">Confirm Password</label>
+                <input type="password" id="materialContactFormEmail" class="form-control" placeholder="Re-Enter your password" name="cpass" required>
             </div>
+
             <div class="md-form">
-                <input type="email" id="materialContactFormEmail" class="form-control" name="mail" required>
                 <label for="materialContactFormEmail">Email</label>
+                <input type="email" id="materialContactFormEmail" class="form-control" name="mail" placeholder="Enter your E-mail address : abc@tmail.com" required>
             </div>
+
             <div class="md-form">
-                <input type="text" id="materialContactFormEmail" class="form-control" name="mob" required>
                 <label for="materialContactFormEmail">Contact No.</label>
+                <input type="tel" id="materialContactFormEmail" class="form-control" name="mob" placeholder="Enter your phone number : +91-1234567892" required>
             </div>
 
 
             <!--Message-->
             <div class="md-form">
-                <textarea id="materialContactFormMessage" class="form-control md-textarea" rows="3" name="bio" required></textarea>
                 <label for="materialContactFormMessage">Bio</label>
+                <textarea id="materialContactFormMessage" class="form-control md-textarea" rows="3" name="bio" placeholder="Tell us something about Yourself" required></textarea>
             </div>
+
             <p>Please select your account type:</p>
             <input type="radio" id="male" name="type" value="student">
             <label for="male">Student</label><br>
@@ -68,7 +79,7 @@
 
             <!-- Copy -->
             <!-- Send button -->
-            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Create account</button>
+            <button class="btn btn-warning btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Create account</button>
 
         </form>
         <!-- Form -->
