@@ -1,6 +1,6 @@
 from django.db import models
 from courses.models import *
-
+from django.contrib.auth.models import User
 #1 for creating assignment
 class CreateAssignment(models.Model):
 
@@ -57,6 +57,6 @@ class SubmitAssignment(models.Model):
 
 	data = models.ForeignKey(CreateAssignment,on_delete=models.CASCADE,null=True)
 	studentResponse = models.FileField(null=True,blank=False)
-
+	student = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 	class Meta:
 		verbose_name_plural = 'Submit Assignment'

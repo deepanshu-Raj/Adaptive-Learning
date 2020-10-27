@@ -42,16 +42,28 @@
                                 {% endfor %}
                             </ul>
                         </div>
+                        <h4 class="title">Assignment</h4>
+                        <div class="content">
+                            <ul class="course-list">
+                                {% for mat in assign %}
+                                <li class="justify-content-between d-flex">
+                                    <p>{{ mat.title }}</p>
+                                    <a class="btn text-uppercase" href="{% url 'courses:assignment' mat.id %}">View</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
 
                         </div>
                         <h4 class="title">Test and Quizzes</h4>
                         <div class="content">
                             <ul class="course-list">
-
+                                {% for te in test %}
                                 <li class="justify-content-between d-flex">
-                                    <p>test 1</p>
-                                    <a class="btn text-uppercase" href="">View</a>
+                                    <p>{{ te.title }}</p>
+                                    <a class="btn text-uppercase" href="#">Start</a>
                                 </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>

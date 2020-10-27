@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block banner %}
+<h1 class="text-white">
+            Assignment
+          </h1>
+          <p class="mx-auto text-white  mt-20 mb-40">
+           Details
+          </p>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <h3><a href="{{ assign.task.url }}">View Assignment</a></h3>
+    <div class="row">
+    <div class="col-md-6">
+        <br><br><br>
+<div class="card">
+
+
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+
+        <!-- Form -->
+        <form class="text-center" style="color: #757575;"  action="{% url 'courses:submit' assign.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Name -->
+
+            <label>Add your work</label>
+            <br><br>
+            <input type="file" name="work" required>
+<br><br>
+            <!-- Send button -->
+            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Turn In</button>
+
+        </form>
+        <!-- Form -->
+
+    </div>
+
+</div>
+</div>
+    </div>
+</div>
+
+{% endblock %}
