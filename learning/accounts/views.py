@@ -8,21 +8,33 @@ import datetime
 
 
 
+#Signin - forgot password + signin with google accounts/github/linkedin accounts.
 def login(request):
     if request.method == 'POST':
-        user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
-        if user is not None:
-            auth.login(request, user)
-            det = Userdetail.objects.filter(name=request.user).first()
-            courses = Course.objects.filter(author=request.user)
-            return render(request, 'dashboard.html', {'det': det, 'course':courses})
-        else:
-            return render(request, 'login.html')
+        print(request.POST.get('signin'))
+        if request.POST.get('signin'):
+            user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
+            if user is not None:
+
+                auth.login(request, user)
+                det = Userdetail.objects.filter(name=request.user).first()
+                courses = Course.objects.filter(author=request.user)
+                return render(request, 'dashboard.html', {'det': det, 'course':courses})
+            
+            #if username or password is incorrect.
+            else:
+                return render(request, 'login.html',{
+                    'message':'Username or Password is incorrect'
+                    })
+        
+        elif request.POST.get('signup'):
+            return render(request,'register.html',{})
 
     else:
-        return render(request, 'login.html')
+        return render(request,'login.html',{})
 
-# Rgistration view - complete.
+
+#register a new user : signUp
 def Register(request):
     if request.method == 'POST':
         UD = Userdetail()
