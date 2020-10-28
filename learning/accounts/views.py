@@ -1,12 +1,24 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
-# Create your views here.
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib import auth
+from django.contrib.auth import get_user_model
+from django.contrib.auth.tokens import default_token_generator
+from django.contrib.sites.shortcuts import get_current_site
+from django.core.mail import EmailMessage
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
+from .tokens import account_activation_token
 from .models import *
+from .forms import *
 from courses.models import *
 import datetime
 
-
+UserModel = get_user_model()
 
 #Signin - forgot password + signin with google accounts/github/linkedin accounts.
 def login(request):
@@ -34,6 +46,8 @@ def login(request):
         return render(request,'login.html',{})
 
 
+
+
 #register a new user : signUp
 def Register(request):
     if request.method == 'POST':
@@ -51,17 +65,40 @@ def Register(request):
 
         #Check for password mismatch.
         if request.POST['pass'] == request.POST['cpass']:
-            pass
+            if len(request.POST['pass'])<6:
+                return render(request,'register.html',{
+                    'message_password':'password too short'
+                    })
         else:
             return render(request,'register.html',{
                 'message_password':'password mismatch'
                 })    
 
         NewUser = User.objects.create_user(username=request.POST['username'],email=request.POST['mail'],
-            password=request.POST['pass'],first_name=request.POST['first_name'],last_name=request.POST['last_name'])
+            first_name=request.POST['first_name'],last_name=request.POST['last_name'])
+        NewUser.set_password(request.POST['pass'])
+        NewUser.is_active = False
+        NewUser.save()
+
+        current_site = get_current_site(request)
+        mail_subject = 'Activate Your Account'
+        message = render_to_string(
+            'acc_activate_email.html',{
+            'user':NewUser,
+            'domain':current_site.domain,
+            'uid':urlsafe_base64_encode(force_bytes(NewUser.pk)),
+            'token':default_token_generator.make_token(NewUser)
+            })
+
+        to_mail = request.POST['mail']
+        email_object = EmailMessage(
+            subject=mail_subject,
+            body=message,
+            to=[to_mail]
+            )
+        email_object.send()
 
         UD.name = NewUser
-
         UD.fullname = request.POST['first_name']+" "+request.POST['last_name']
         UD.bio = request.POST['bio']
         UD.email = request.POST['mail']
@@ -71,16 +108,35 @@ def Register(request):
             UD.teacher = True
         else:
             UD.teacher = False
-
-        print('saved')    
+   
         UD.save()
         return render(request,'thanks.html',{
-            'message':'Bingo!! You have been Registered',
+            'message':'Bingo!! Just one step to go.You may now go ahead and verify yourself with the verification link sent to your email-id',
             'user':request.POST['first_name']
             })    
     else:
         return render(request,'register.html',{
 
+            })
+
+#for activating the inactive account.
+def activate(request,uidb64,token):
+    try:
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = UserModel._default_manager.get(pk=uid)
+    except(TypeError,ValueError,OverflowError,User.DoesNotExist):
+        user = None
+
+    if user is not None and default_token_generator.check_token(user,token):
+        user.is_active = True
+        user.save()
+        return render(request,'thanks.html',{
+            'message':'Your Email has been Verified!!.You may now go ahead and login.',
+            'user':user.first_name
+            })
+    else:
+        return render(request,'error.html',{
+            'error_message':'Activation Link Is Invalid!!'
             })
 
 
