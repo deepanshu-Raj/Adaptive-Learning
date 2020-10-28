@@ -1,36 +1,56 @@
 {% extends 'base.html' %}
 {% block banner %}
-<h1 class="text-white">
+<h1 class="text-white" style="font-family: Roboto Mono Light;">
             Login
           </h1>
-          <p class="mx-auto text-white  mt-20 mb-40">
+          <p class="mx-auto text-white  mt-20 mb-40" style="font-family: Roboto Mono Light;">
             Signin to your account
           </p>
 
 {% endblock %}
 
 {% block content %}
-
+<br><br>
 <div class="offset-lg-3 col-lg-4 col-md-6">
-    <div style="border: 3px purple dotted ; padding:10px">
+    <div style="padding:10px">
           <div class="course-form-section">
-            <h3 class="text-blue">Login</h3>
-            <p class="text-white">It is high time for learning</p>
+            <h2 class="card-header info-color white-text text-center py-4" style="font-family: Roboto Mono Light;">Login</h2>
+            <br>
+            {%if message%}
+                <div class="alert alert-danger">
+                   <a class="close" href="#" data-dismiss="alert">×</a>
+                      {{ message }}
+                </div>
+            {% endif %}
+            
             <form class="course-form-area contact-page-form course-form text-right" id="myForm" action="{% url 'accounts:login' %}" method="post">
               {% csrf_token %}
-                <div class="form-group col-md-12">
-                <input type="text" class="form-control" id="subject" name="username" placeholder="username" onfocus="this.placeholder = ''"
-                 onblur="this.placeholder = 'username'">
-              </div>
-              <div class="form-group col-md-12">
-                <input type="password" class="form-control" id="email" name="password" placeholder="password" onfocus="this.placeholder = ''"
-                 onblur="this.placeholder = 'password'">
-              </div>
-              <div class="col-lg-12 text-center">
-                <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect">Submit</button>
-              </div>
+                <div class="form-group row">
+                  <label for="exampleTextarea3" class="col-2 col-form-label" style="font-family: Roboto Mono Light;">Username</label>  
+                  <div class="col-10">
+                    <input type="text" class="form-control" id="subject" name="username" placeholder="username" onfocus="this.placeholder = ''"
+                     onblur="this.placeholder = 'username'" style="font-family: Roboto Mono Light;">
+                   </div>
+                </div>
+                
+                <div class="form-group row">
+                  <label for="exampleTextarea3" class="col-2 col-form-label" style="font-family: Roboto Mono Light;">Password</label>
+                  <div class="col-10">
+                    <input type="password" class="form-control" id="email" name="password" placeholder="password" onfocus="this.placeholder = ''"
+                     onblur="this.placeholder = 'password'" style="font-family: Roboto Mono Light;">
+                  </div>
+                </div>
+
+                
+                
+                <button style="font-family: Roboto Mono Light;" class="btn btn-rounded btn-primary btn-block z-depth-0 my-4 waves-effect" type="submit" name="signin" value="signin">Sign In</button>
+
+                <button style="font-family: Roboto Mono Light;" class="btn btn-rounded btn-success btn-block z-depth-0 my-4 waves-effect" type="submit" name="signup" value="signup">Sign Up</button>
+
+
             </form>
+            <p class="text-center"><a href="{% url 'accounts:password_reset' %}" class="ml-2">Forgot Password?</a></p>
           </div>
     </div>
-        </div>
+</div>
 {% endblock %}

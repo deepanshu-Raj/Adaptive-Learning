@@ -32,6 +32,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
+    'chatbot',
+    'courses',
+    'discussions',
+    'quizzes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,11 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'accounts',
-    'chatbot',
-    'courses',
-    'discussions',
-    'quizzes',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +63,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
                     os.path.join(BASE_DIR, 'learning', 'base_templates'),
+                    os.path.join(BASE_DIR, 'accounts', 'templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -135,3 +136,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = 'courses:allcourse'
 
+#SMTP configs : Simple mail transfer Protocol : for password reset.
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'adaptive.learning.innodev@gmail.com'
+EMAIL_HOST_PASSWORD = 'DAAV2k20'

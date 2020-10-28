@@ -1,6 +1,6 @@
 from django.db import models
 from courses.models import *
-
+from django.contrib.auth.models import User
 #1 for creating assignment
 class CreateAssignment(models.Model):
 
@@ -25,7 +25,7 @@ class CreateQuiz_1(models.Model):
 	desc = models.TextField(null=True,blank=False)
 
 	def __str__(self):
-		return self.title+'-'+self.info.subject
+		return self.title
 
 	class Meta:
 		verbose_name_plural = 'Quiz Home'
@@ -49,3 +49,21 @@ class CreateQuiz_2(models.Model):
 	option4 = models.TextField(null=True,blank=False)
 	answer = models.CharField(choices=CHOICES,max_length=1,null=True,blank=False)
 
+	class Meta:
+		verbose_name_plural = 'Quiz Main'
+
+
+class SubmitAssignment(models.Model):
+
+	data = models.ForeignKey(CreateAssignment,on_delete=models.CASCADE,null=True)
+	studentResponse = models.FileField(null=True,blank=False)
+	student = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+	class Meta:
+		verbose_name_plural = 'Submit Assignment'
+
+
+class SubmitQuiz(models.Model):
+
+	subject = models.ForeignKey(Course,on_delete=models.CASCADE,null = True)
+	title = models.ForeignKey(CreateQuiz_1,on_delete=models.CASCADE,null = True)
+	answer = models.CharField(max_length=20,null=True,blank=False)
