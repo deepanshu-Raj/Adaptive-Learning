@@ -48,14 +48,15 @@ def QuizMain(request):
 		CQ2 = CreateQuiz_2()
 		if request.POST.get('save'):
 			
-			#CQ2.data = CreateQuiz_1.objects.filter(pk=reques.POST['quiz_id']).first()
+			# CQ2.data = ??
 			CQ2.question = request.POST['question']
 			CQ2.option1 = request.POST['option1']
-			CQ2.option2 = request.POST['option2']
-			CQ2.option3 = request.POST['option3']
-			CQ2.option4 = request.POST['option4']
+			CQ2.option1 = request.POST['option1']
+			CQ2.option1 = request.POST['option1']
+			CQ2.option1 = request.POST['option1']
 			CQ2.answer = request.POST['answer']
-			#CQ2.save()
+			CQ2.save()
+			print('save1')
 
 			return render(request,'quizMain.html',{
 
@@ -66,11 +67,12 @@ def QuizMain(request):
 			# CQ2.data = ??
 			CQ2.question = request.POST['question']
 			CQ2.option1 = request.POST['option1']
-			CQ2.option2 = request.POST['option2']
-			CQ2.option3 = request.POST['option3']
-			CQ2.option4 = request.POST['option4']
+			CQ2.option1 = request.POST['option1']
+			CQ2.option1 = request.POST['option1']
+			CQ2.option1 = request.POST['option1']
 			CQ2.answer = request.POST['answer']
-			#CQ2.save()
+			CQ2.save()
+			print('save2')
 
 			return render(request,'thanks.html',{
 				'message':'You have successfully created the quiz!'
@@ -80,6 +82,3 @@ def QuizMain(request):
 		return render(request,'quizMain.html',{
 
 			})
-
-def submitAssignment(request):
-	return render(request,'submitAssignment.html',{})
