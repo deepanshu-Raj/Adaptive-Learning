@@ -1,0 +1,3 @@
+selenium==3.141.0
+html-testRunner==1.2.1
+opencv-contrib-python==4.4.0.44
