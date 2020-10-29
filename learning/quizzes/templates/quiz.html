@@ -76,8 +76,9 @@
     {% endfor %}
     <input type="submit" value="Finalize" id="but1" onclick="getanswers()"/>
     <form action="{% url 'quizzes:storeresult' %}" method="POST">
+        {% csrf_token %}
         <input type="text" hidden name="score" value="" id="score">
-        <input type="text" hidden name="score" value="{{ quiz.id }}">
+        <input type="text" hidden name="quiz_id" value="{{ quiz.id }}">
         <input type="submit" value="SUBMIT TEST">
     </form>
 </div>

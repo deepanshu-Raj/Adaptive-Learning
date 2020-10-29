@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from courses.models import *
 
@@ -93,8 +93,9 @@ def takequiz(request, quiz_id):
 def storeresult(request):
 	res = Result()
 	res.student = request.user
-	quiz = CreateQuiz_1.objects.filter(pk=request.POST['quiz_id'])
+	quiz = CreateQuiz_1.objects.filter(pk=request.POST['quiz_id']).first()
 	res.quiz =quiz
 	res.score = request.POST['score']
 	res.save()
+
 
