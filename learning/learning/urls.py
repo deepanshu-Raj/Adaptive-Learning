@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import home
+from .views import *
 from . import settings
 from django.conf.urls.static import static
 
@@ -8,7 +8,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',home, name='home'),
-    
+    path('contact/',Contact,name='contact'),
+    path('aboutus/',aboutUs,name='about'),
     path('', include('accounts.urls', namespace='accounts')),
     # path('chatbot/', include('chatbot.urls', namespace='chatbot')),
     path('courses/', include('courses.urls', namespace='courses')),

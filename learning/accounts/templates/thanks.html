@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 {% block banner %}
     <h1 class="text-white" style="font-family: Roboto Mono Light;">
-            Welcome {{ user }}
+            Welcome {% if user %}{{ user }}{% endif %}
           </h1>
           <p class="mx-auto text-white  mt-20 mb-40" style="font-family: Roboto Mono Light;">
-            Registration Successfull
+            {% if msg_cnt %}
+              {{ msg_cnt }}
+            {% else %}
+              Registration Successfull
+            {% endif %}
           </p>
 
 {% endblock %}
