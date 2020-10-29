@@ -1,14 +1,10 @@
 {% extends 'base.html' %}
 {% block banner %}
     <h1 class="text-white" style="font-family: Roboto Mono Light;">
-            Welcome {% if user %}{{ user }}{% endif %}
+            Registration Failed
           </h1>
           <p class="mx-auto text-white  mt-20 mb-40" style="font-family: Roboto Mono Light;">
-            {% if msg_cnt %}
-              {{ msg_cnt }}
-            {% else %}
-              Registration Successfull
-            {% endif %}
+            Link Invalid
           </p>
 
 {% endblock %}
@@ -17,7 +13,7 @@
 <div class="container">
     <div style="padding: 10px;">
         <p class="mb-0 text-success h4 text-center" style="font-family: Roboto Mono Light;">
-        	<span style="font-size: 40px;">&#9996;&#127995;</span>{{ message }}
+        	<span style="font-size: 40px;">&#9996;&#127995;</span>{{ error_message }}
         </p><br><br><br>
         <p class="text-center">
         	<button type="button" class="btn btn-primary" style="font-family: Roboto Mono Light;"><a href="{% url 'accounts:login' %}" class="text-white">Return To LogIn</a></button>

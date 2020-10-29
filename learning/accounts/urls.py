@@ -17,6 +17,8 @@ urlpatterns = [
     path('contactsave',contactsave, name='contactsave'),
     path('stcontact', stcontact, name='stcontact'),
 
+    path('activate/<uidb64>/<token>/',activate,name='activate'),
+
     path('reset_password/',
         PasswordResetView.as_view(template_name='password_reset.html',
             form_class=EmailValidationOnForgotPassword),name='password_reset'),
@@ -32,5 +34,5 @@ urlpatterns = [
     path('reset/done/',
         PasswordResetCompleteView.as_view(template_name='password_reset_done.html'),
         name='password_reset_complete')
-
+    
 ]

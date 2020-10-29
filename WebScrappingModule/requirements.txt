@@ -1,0 +1,6 @@
+selenium==3.141.0
+html-testRunner==1.2.1
+opencv-contrib-python==4.4.0.44
+numpy>=1.14.5
+Jinja2>=2.10.1
+MarkupSafe>=0.23
