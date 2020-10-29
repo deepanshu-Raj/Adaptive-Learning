@@ -67,3 +67,19 @@ class SubmitQuiz(models.Model):
 	subject = models.ForeignKey(Course,on_delete=models.CASCADE,null = True)
 	title = models.ForeignKey(CreateQuiz_1,on_delete=models.CASCADE,null = True)
 	answer = models.CharField(max_length=20,null=True,blank=False)
+
+
+class Exam(models.Model):
+	quiz = models.ForeignKey(CreateQuiz_1,on_delete=models.CASCADE)
+	ques = models.CharField(max_length=100)
+	qno = models.IntegerField(blank=True, null=True)
+	o1 = models.CharField(max_length=100)
+	o2 = models.CharField(max_length=100)
+	o3 = models.CharField(max_length=100)
+	o4 = models.CharField(max_length=100)
+	cans = models.CharField(max_length=100)
+
+class Result(models.Model):
+	student = models.ForeignKey(User,on_delete=models.CASCADE)
+	quiz = models.ForeignKey(CreateQuiz_1,on_delete=models.CASCADE)
+	score = models.CharField(max_length=20)

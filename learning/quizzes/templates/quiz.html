@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block head %}
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+    </script>
+<script>
+    function getanswers()
+    {
+
+    var e=document.getElementsByTagName("input");
+    var s=0;
+    for(i=0;i<e.length;i++)
+    {
+    if(e[i].type=="radio")
+        {
+
+            if(e[i].checked)
+            {
+                var s1=e[i].value;
+                var s2=e[i+1].value;
+
+                if(s1.localeCompare(s2)==0)
+                {
+
+                s=s+1;
+                }
+            }
+        }
+    }
+
+
+    document.getElementById("score").value = s;
+    }
+</script>
+
+
+{% endblock %}
+{% block banner %}
+    <h1 class="card-header info-color white-text text-center py-4">
+        <strong>Quiz Time</strong>
+    </h1>
+{% endblock %}
+{% block content %}
+<br><br><br>
+
+<script>
+    $(document).
+</script>
+<div class="container">
+    {% for q in questions %}
+    <table>
+        <tr>
+            <td>{{ q.ques }} ?</td>
+        </tr>
+        <tr>
+            <td><input type="radio" class="rb" name="{{ q.qno }}" id="o1" value="{{ q.o1 }}">{{ q.o1 }} </td>
+            <td><input type="text" hidden value="{{ q.cans }}"></td>
+        </tr>
+        <tr>
+            <td><input type="radio" class="rb" name="{{ q.qno }}" id="o2" value="{{ q.o2 }}">{{ q.o2 }} </td>
+            <td><input type="text" hidden value="{{ q.cans }}"></td>
+        </tr>
+        <tr>
+            <td><input type="radio" class="rb" name="{{ q.qno }}" id="o3" value="{{ q.o3 }}">{{ q.o3 }} </td>
+            <td><input type="text" hidden value="{{ q.cans }}"></td>
+        </tr>
+        <tr>
+            <td><input type="radio" class="rb" id="o4" name="{{ q.qno }}" value="{{ q.o4 }}">{{ q.o4 }} </td>
+            <td><input type="text" hidden value="{{ q.cans }}"></td>
+        </tr>
+        <tr>
+            <td><label id="cans" class="rb" style="display:none; color: green"><b>{{ q.cans }}</b></label></td>
+        </tr>
+    </table>
+    <hr>
+    {% endfor %}
+    <input type="submit" value="Finalize" id="but1" onclick="getanswers()"/>
+    <form action="{% url 'quizzes:storeresult' %}" method="POST">
+        <input type="text" hidden name="score" value="" id="score">
+        <input type="text" hidden name="score" value="{{ quiz.id }}">
+        <input type="submit" value="SUBMIT TEST">
+    </form>
+</div>
+{% endblock %}
