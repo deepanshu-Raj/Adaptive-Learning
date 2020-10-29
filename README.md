@@ -1,8 +1,8 @@
 # GETTING STARTED
 First clone the project and create a new virtual env, then install all the modules using the requirements.txt file.<br>
-All the urls will start with "http://127.0.0.1:8000/<app_name>/<fucntion name>".<br>
+All the urls will start with "http://127.0.0.1:8000/<app_name>/<function_name>".<br>
 Uncomment your app's url in learning's urls.py file.<br>
-Add aap_name='<app_name>' in each of your urls.py file after importing all the required modules.
+Add app_name='<app_name>' in each of your urls.py file after importing all the required modules.
 
 
 # Adaptive-Learning
@@ -12,10 +12,10 @@ Innodev-2k20
 ### Team Members :
 <pre>
 <h3>
- - Ayush Srivastava
- - Anushka Srivastava
- - Vivek Rai
- - Deepanshu Raj
+ - <a href="https://github.com/ayush-srivastava99" target="_blank">Ayush Srivastava</a>
+ - <a href="https://github.com/Anushkaa-Srivastava" target="_blank">Anushka Srivastava</a>
+ - <a href="https://github.com/Blazer-007" target="_blank">Vivek Rai</a>
+ - <a href="https://github.com/deepanshu-Raj" target="_blank">Deepanshu Raj</a>
 </h3>
 </pre>
 
