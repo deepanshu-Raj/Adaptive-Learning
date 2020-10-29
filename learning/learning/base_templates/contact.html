@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+
+{% endblock %}
+{% block banner %}
+    <h1 class="text-white" style="font-family: Roboto Mono Light;">
+          Contact Us
+          </h1>
+      <p class="mx-auto text-white  mt-20 mb-40" style="font-family: Roboto Mono Light;">
+            We are ready to lead you into the future of Education system
+          </p>
+{% endblock %}
+{% block content %}
+<br><br>
+<div id="fh5co-contact">
+		<p class="mx-auto h1" style="font-family: Roboto Mono;text-align: center;">
+			<strong>Friendly Folks Standing By</strong>
+         </p>
+
+        <div class="container">
+        	<hr>
+			<div class="row">
+			  <div class="column" style="padding-right: 50px;padding-left: 140px">
+			    <img src="../static/img/img1.png" alt="Avatar" style="width:100px;">
+			  </div>
+			  <div class="column" style="padding-right: 50px;">
+			    <img src="../static/img/img2.png" alt="Avatar" style="width:100px;">
+			  </div>
+			  <div class="column" style="padding-right: 50px;">
+			  	<img src="../static/img/img3.png" alt="Avatar" style="width:100px;">
+			  </div>
+			  <div class="column" style="padding-right: 50px;">
+			  	<img src="../static/img/img4.png" alt="Avatar" style="width:100px;">
+			  </div>
+			  <div class="column" style="padding-right: 50px;padding-top: 20px;">
+			  	<img src="../static/img/img5.png" alt="Avatar" style="width:100px;">
+			  </div>
+			  <div class="column" style="padding-right: 50px;padding-top: 20px;">
+			  	<img src="../static/img/img6.png" alt="Avatar" style="width:100px;">
+			  </div>
+			</div>
+		</div>
+		<div class="container">
+			<p class="mx-auto h3" style="font-family : Comic Sans MS;text-align: center;">
+				Always humans, never bots. The hands-down, sharpest and friendliest support team in the biz. Contact us and we’ll get back to you in about<strong> an hour.</strong>
+	        </p>
+	        <br>
+	        <hr>
+        </div>
+		<div class="container">
+
+			<div class="row">
+				
+				<div class="col-md-5 col-md-push-1 animate-box">
+					
+					<div class="fh5co-contact-info card-body">
+						<br>
+						<h2 style="font-family: Roboto Mono Light">Contact Information</h2>
+						<br><br>
+						<h6 style="font-family: Roboto Mono Light;">
+							<ul class="list-group list-group-flush">
+							  <li class="list-group-item address"><strong>Motilal Nehru National Institute Of Technology, Teliarganj, Allahabad (208002)</strong></li>
+							  <li class="list-group-item phone"><strong>Contact No. : </strong><a href="tel://1234567920">+91 9318357385</a></li>
+							  <li class="list-group-item email"><strong>Email-id : </strong><a href="mailto:info@yoursite.com">adaptive.learning.innodev@gmail.com</a></li>
+							  <li>
+							  	<br>
+							  	<div class="row">
+									<div class="column" style="">
+										<img src="../static/img/img8.jpg" alt="Avatar" style="width:200px;">
+									</div>
+
+									<div class="column" style="">
+										<img src="../static/img/img9.jpg" alt="Avatar" style="width:200px;">
+									</div>			
+								</div>
+							  </li>
+							</ul>
+						</h6>
+					</div>
+				</div>
+
+				<div class="col-md-6 animate-box">
+					<br><br>
+					<h2 style="font-family: Roboto Mono Light">Give Us A Shout</h2><hr>
+					<br>
+					<p class="h4" style="text-align: left;font-family: Roboto Mono Light;">Use the form below to drop us a message.</p><br>
+					<form action="#" method="post">
+						<div class="row form-group">
+							<div class="col-md-6">
+								<!-- <label for="fname">First Name</label> -->
+								<input type="text" id="fname" class="form-control" placeholder="Your firstname" name="firstname">
+							</div>
+							<div class="col-md-6">
+								<!-- <label for="lname">Last Name</label> -->
+								<input type="text" id="lname" class="form-control" placeholder="Your lastname" name="lastname">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="email">Email</label> -->
+								<input type="email" id="email" class="form-control" placeholder="Your email address" name="mail">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="subject">Subject</label> -->
+								<input type="text" id="subject" class="form-control" placeholder="Your subject of this message" name="subject">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="message">Message</label> -->
+								<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Send Message" class="btn btn-primary">
+						</div>
+
+					</form>		
+				</div>
+			</div>
+			
+		</div>
+	</div>
+{% endblock %}
