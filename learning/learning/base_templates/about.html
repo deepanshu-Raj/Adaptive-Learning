@@ -1,97 +1,208 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block css %}
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+{% endblock %}
+{% block banner %}
+	<h1 class="text-white" style="font-family: Roboto Mono Light;">
+          About Us<!-- add a proper title here -->
+          </h1>
+      <p class="mx-auto text-white  mt-20 mb-40" style="font-family: Roboto Mono Light;">
+            <strong>Educating Champions of a Just and Sustainable World.</strong>
+       </p>	
+{% endblock %}
 {% block content %}
-<h3>WELCOME</h3>
+<br><br>
 <div id="fh5co-about">
-		<div class="container">
-			<div class="col-md-6 animate-box">
-				<span>About Our Website</span>
-				<h2>Welcome to Adaptive Learning</h2>
-				<p>Adaptive learning, also known as adaptive teaching, is an educational method which uses computer algorithms to orchestrate the interaction with the learner and deliver customized resources and learning activities to address the unique needs of each learner.</p>
-				<p>In this website, you can take different courses, learn in real time and let yourself grow with the course material and the interactive learning we offer.</p>
-				<p>We also provide the provision of quizzes where after enrolling for a course, you can study and take a quiz ob the topics to help yourself judge your learning.</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 col-md-push-1 animate-box">
+				<h1 style="font-family: Roboto Mono">About Our Website</h1><br>
+				<hr>
+				<p class="h3" style="font-family: Comic Sans MS;">Welcome to Adaptive Learning</p><br>
+				<p class="h6" style="font-family: Roboto Mono Light;">Adaptive learning, also known as adaptive teaching, is an educational method which uses computer algorithms to orchestrate the interaction with the learner and deliver customized resources and learning activities to address the unique needs of each learner.</p><br>
+				<p class="h6" style="font-family: Roboto Mono Light;">In this website, you can take different courses, learn in real time and let yourself grow with the course material and the interactive learning we offer.</p><br>
+				<p class="h6" style="font-family: Roboto Mono Light;">We also provide the provision of quizzes where after enrolling for a course, you can study and take a quiz ob the topics to help yourself judge your learning.</p>
 			</div>
-			<div class="col-md-6">
-				<img class="img-responsive" src="images/img_bg_2.jpg" alt="Free HTML5 Bootstrap Template">
-			</div>
-		</div>
-	</div>
-<div id="fh5co-course-categories">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-					<h2>Course categories</h2>
-					<p>We offer a great deal of courses where you can select from and help yourself grow as an individual.</p>
+			<div class="col-md-5 col-md-push-1 animate-box">
+				<div class="col-md-6">
+					<img class="img-responsive" src="../static/img/img10.jpg" alt="Studying kid" style="width: 700px;border-radius: 50%;">
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-3 col-sm-6 text-center animate-box">
+		</div>
+		<hr>
+	</div>
+
+</div>
+	<br>
+<div id="fh5co-course-categories">
+	<h1 class="text-center" style="font-family: Roboto Mono">
+		Course categories
+	</h1>
+	<br>
+	<div class="container">
+		<p class="text-center text-dark h3" style="font-family: Comic Sans MS">
+			We offer a great deal of courses where you can select from and help yourself grow as an individual.
+		</p>
+		<br>
+		<hr>
+	</div>
+	<br>
+		<div class="container">
+			<div class="row" style="margin-left: 150px;">
+				<div class="col-md-3 col-sm-6 text-center animate-box" style="margin-left: 20px;margin-right: 20px;">
 					<div class="services">
 						<span class="icon">
-							<i class="icon-lab2"></i>
-						</span>
+							<i class='fas fa-divide' style="font-size: 48px;color: black;"></i>
+						</span><br><br>
 						<div class="desc">
 							<h3><a href="#">Maths</a></h3>
-							<p>Can you imagine a life without maths? Maths has been the basis of every study. This course will help you become profient in maths along with developing some really good tricks.</p>
+							<hr>
+							<p class="h5 text-center" style="font-family: Roboto Mono Light;">Can you imagine a life without maths? Maths has been the basis of every study. This course will help you become profient in maths along with developing some really good tricks.</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6 text-center animate-box">
+				<div class="col-md-3 col-sm-6 text-center animate-box" style="margin-left: 20px;margin-right: 20px;">
 					<div class="services">
 						<span class="icon">
-							<i class="icon-lab2"></i>
-						</span>
+							<i class="fas fa-atom" style="font-size: 48px;color: black;"></i>
+						</span><br><br>
 						<div class="desc">
 							<h3><a href="#">Science</a></h3>
-							<p>In this technological era, everything depends on science. This course offers number of theoretical plus experimental studies to help you get over the fear of science.</p>
+							<hr>
+							<p class="h5 text-center" style="font-family: Roboto Mono Light;">In this technological era, everything depends on science. This course offers number of theoretical plus experimental studies to help you get over the fear of science.</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6 text-center animate-box">
+				<div class="col-md-3 col-sm-6 text-center animate-box" style="margin-left: 20px;margin-right: 20px;">
 					<div class="services">
 						<span class="icon">
-							<i class="icon-lab2"></i>
-						</span>
+							<img src="../static/img/ds.png" alt='Data Structure' style="width: 48px;height: 48px;">
+						</span><br><br>
 						<div class="desc">
 							<h3><a href="#">Data Structures</a></h3>
-							<p>Have fear how to study data structures? Well this course is a complete guide to help you get started with the fundamental concepts of data structures.</p>
+							<hr>
+							<p class="h5 text-center" style="font-family: Roboto Mono Light;">Have fear how to study data structures? Well this course is a complete guide to help you get started with the fundamental concepts of data structures.</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6 text-center animate-box">
+		</div>
+	</div>
+	<br><br>
+	<div class="container">
+		<div class="row" style="margin-left: 150px;">			
+				<div class="col-md-3 col-sm-6 text-center animate-box" style="margin-left: 20px;margin-right: 20px;">
 					<div class="services">
 						<span class="icon">
-							<i class="icon-lab2"></i>
-						</span>
+							<img src="../static/img/algo.png" alt='algorithms' style="width: 52px;height: 52px;">
+						</span><br><br>
 						<div class="desc">
 							<h3><a href="#">Algorithms</a></h3>
-							<p>This course is an addition to the course of Data Structures. This course offers a collection of algorithms to make your programming better.</p>
+							<hr>
+							<p class="h5 text-center" style="font-family: Roboto Mono Light;">This course is an addition to the course of Data Structures. This course offers a collection of algorithms to make your programming better.</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6 text-center animate-box">
+				<div class="col-md-3 col-sm-6 text-center animate-box" style="margin-left: 20px;margin-right: 20px;">
 					<div class="services">
 						<span class="icon">
-							<i class="icon-lab2"></i>
-						</span>
+							<img src="../static/img/cp.png" alt='CP' style="width: 48px;height: 48px;">
+						</span><br><br>
 						<div class="desc">
 							<h3><a href="#">Competitive Programming</a></h3>
-							<p>Well, now we all know the importance of competitive Programming to grab software interns and jobs. And this course can prove to be a boon for all the beginners out there.</p>
+							<hr>
+							<p class="h5 text-center" style="font-family: Roboto Mono Light;">Well, now we all know the importance of competitive Programming to grab software interns and jobs. And this course can prove to be a boon for all the beginners out there.</p>
 						</div>
 					</div>
-				</div><div class="col-md-3 col-sm-6 text-center animate-box">
+				</div><div class="col-md-3 col-sm-6 text-center animate-box" style="margin-left: 20px;margin-right: 20px;">
 					<div class="services">
 						<span class="icon">
-							<i class="icon-lab2"></i>
-						</span>
+							<img src="../static/img/ec.png" alt='EC' style="width: 48px;height: 48px;">
+						</span><br><br>
 						<div class="desc">
 							<h3><a href="#">Electrical circuits</a></h3>
-							<p>Curious about how such small circuits lead to working of big equipments? Well, here is a course to help you learn all about its basics and let you capture in its essence.</p>
+							<hr>
+							<p class="h5 text-center" style="font-family: Roboto Mono Light;">Curious about how such small circuits lead to working of big equipments? Well, here is a course to help you learn all about its basics and let you capture in its essence.</p>
 						</div>
 					</div>
 				</div>
 			</div>
+			<br>
+			<hr>
 		</div>
-</div>
+	</div>
+	<div class="container">
+		<h1 class="text-center" style="font-family: Roboto Mono">
+			About Developers
+		</h1>
+		<br>
+		<p class="text-center text-dark" style="font-family: Comic Sans MS; font-size: 20px;">
+			This site is developed by 3rd year UGs of MNNIT, allahabad. This website was build over with the motivation to keep the quality of education upto mark even in the adverse time that the world is going through.We at adaptive Learning tried our best to keep our website User-friendly an as informative as possible.
+		</p>
+	</div><br><br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 col-md-push-1 animate-box">
+				<div class="col-md-6">
+					<img class="img-responsive" src="../static/img/ayush.png" alt="Studying kid" style="width: 200px;border-radius: 50%;margin-left: 100px;">
+				</div>
+			</div>
+			<div class="col-md-5 col-md-push-1 animate-box">
+				<h2 style="font-family: Roboto Mono">Ayush Srivastava</h2>
+				<hr>
+				<p class="text-left" style="font-size: 18px;color: black;">3rd year UG at MNNIT, allahabad. Got selected for 2-months summer internship at Golman Sachs Pvt. Limited India. Master at Competetive programming. Expertise in python development.Works well with Python, Java and C++.</p>
+				<hr>
+				<li class="list-group-item email"><strong>Email-id : </strong><a href="mailto:info@yoursite.com">iayush.srivastava1999@gmail.com</a></li>
+			</div>
+		</div>
+		<br><br>
+
+		<div class="row">
+			<div class="col-md-5 col-md-push-1 animate-box">
+				<h2 class="text-right" style="font-family: Roboto Mono">Vivek Rai</h2>
+				<hr>
+				<p class="text-right" style="font-size: 18px;color: black;">3rd year UG at MNNIT, allahabad. Got selected for 2-months summer internship at Oracle India. Master at Competitive programming. Expertise in Web Development. Special Interest in the field of Machine Learning. Works well with Python, Java and C++.</p>
+				<hr>
+				<li class="list-group-item email"><strong>Email-id : </strong><a href="mailto:info@yoursite.com">vivekrai5839@gmail.com</a></li>
+			</div>
+			<div class="col-md-5 col-md-push-1 animate-box">
+				<div class="col-md-6">
+					<img class="img-responsive" src="../static/img/vivek.png" alt="Studying kid" style="width: 200px;border-radius: 50%;margin-left: 100px;">
+				</div>
+			</div>
+		</div>
+		<br><br>
+
+		<div class="row">
+			<div class="col-md-5 col-md-push-1 animate-box">
+				<div class="col-md-6">
+					<img class="img-responsive" src="../static/img/anushka.png" alt="Studying kid" style="width: 200px;border-radius: 50%;margin-left: 100px;">
+				</div>
+			</div>
+			<div class="col-md-5 col-md-push-1 animate-box">
+				<h2 style="font-family: Roboto Mono">Anushka Srivastava</h2>
+				<hr>
+				<p class="text-left" style="font-size: 18px;color: black;">3rd year UG at MNNIT, allahabad.Got selected for 2-months summer intership at Amazon India. Master at competitive programming. Expertise at Android Development. Works well with Flutter, Python and C++.</p>
+				<hr>
+				<li class="list-group-item email"><strong>Email-id : </strong><a href="mailto:info@yoursite.com">anushkasrivastavajhs1999@gmail.com</a></li>
+			</div>
+		</div>
+		<br><br>
+
+		<div class="row">
+			<div class="col-md-5 col-md-push-1 animate-box">
+				<h2 class="text-right" style="font-family: Roboto Mono">Deepanshu Raj</h2>
+				<hr>
+				<p class="text-right" style="font-size: 18px;color: black;">3rd year UG at MNNIT, allahabad. Got selected for 2-months summer internship at Qualcolmm India. Master at Competetive programming. Expertise in python development. Special Interest in the field of Machine Learning and Web Development.Works well with Python and C++.</p>
+				<hr>
+				<li class="list-group-item email"><strong>Email-id : </strong><a href="mailto:info@yoursite.com">dcode711@gmail.com</a></li>
+			</div>
+			<div class="col-md-5 col-md-push-1 animate-box">
+				<div class="col-md-6">
+					<img class="img-responsive" src="../static/img/deepanshu.png" alt="Studying kid" style="width: 200px;border-radius: 50%;margin-left: 100px;">
+				</div>
+			</div>
+		</div>
+		<hr>
+	</div>
 {% endblock %}
