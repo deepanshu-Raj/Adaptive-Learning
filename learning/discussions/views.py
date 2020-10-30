@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from discussions.models import Post, BlogComment
+from discussions.models import Post, BlogComment, Reward
 from django.contrib import messages
 from django.contrib.auth.models import User
 from discussions.templatetags import extras
@@ -63,4 +63,14 @@ def createPost(request):
         post.save()
         messages.success(request, "Your post has been posted successfully")
 
+    return redirect(f"/discussions")
+
+def upVote(request):
+    if request.method == 'POST':
+        Sno = request.POST.get('Sno')
+        comment = BlogComment.objects.get(sno=Sno)
+        user = comment.user
+        reward = Reward.objects.get(user = user)
+        reward.coins = reward.coins + 1
+        reward.save()
     return redirect(f"/discussions")
