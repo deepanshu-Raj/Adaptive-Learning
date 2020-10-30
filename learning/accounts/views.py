@@ -57,7 +57,10 @@ def login(request):
     else:
         return render(request,'login.html',{})
 
-
+#Logout section
+def logout(request):
+    auth.logout(request)
+    return render(request,'login.html',{})
 
 
 #register a new user : signUp

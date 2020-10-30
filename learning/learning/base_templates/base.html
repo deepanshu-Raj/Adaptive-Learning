@@ -43,54 +43,45 @@
 
 <body style="font-family: Roboto Mono Light">
   <!-- ================ Start Header Area ================= -->
+  
   <header class="default-header">
     <nav class="navbar navbar-expand-lg  navbar-light" style="background-color:black">
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img src="img/logo.png" alt="" />
+          <img src="img/fav.png" alt="" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="lnr lnr-menu"></span>
         </button>
 
-        <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li><a href="{% url 'accounts:dashboard' %}">Dashboard</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Courses</a></li>
-            <!-- Dropdown -->
-            <li class="dropdown">
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                Pages
-              </a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="">Elements</a>
-                <a class="dropdown-item" href="">Course Details</a>
-              </div>
-            </li>
-            
-            <li><a href="">Contacts</a></li>
-
-            <li>
-              <button class="search">
-                <span class="lnr lnr-magnifier" id="search"></span>
-              </button>
-            </li>
-          </ul>
-        </div>
+        {% if user.is_authenticated %}
+            <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                  <li><a href="{% url 'accounts:dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'courses:allcourse' %}">Courses</a></li>
+                <li><a href="{% url 'discussions:discussionHome' %}">Discussion Forum</a></li>
+                <li><a href="{% url 'about' %}">About US</a></li>
+                <li><a href="{% url 'contact' %}">Contact US</a></li>
+                <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+              </ul>
+            </div>
+        {% else %}
+            <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li><a href="{% url 'accounts:register' %}">Register</a></li>
+                <li><a href="{% url 'accounts:login' %}">Log IN</a></li>
+                <li><a href="{% url 'about' %}">About US</a></li>
+                <li><a href="{% url 'contact' %}">Contact US</a></li>
+              </ul>
+            </div>
+        {% endif %}
       </div>
     </nav>
-    <div class="search-input" id="search-input-box">
-      <div class="container">
-        <form class="d-flex justify-content-between">
-          <input type="text" class="form-control" id="search-input" placeholder="Search Here" />
-          <button type="submit" class="btn"></button>
-          <span class="lnr lnr-cross" id="close-search" title="Close Search"></span>
-        </form>
-      </div>
-    </div>
   </header>
+
+    
   <!-- ================ End Header Area ================= -->
 <!-- ================ start banner Area ================= -->
   <section class="home-banner-area" >
@@ -113,74 +104,52 @@
 
   <!-- ================ start footer Area ================= -->
   <footer class="footer-area section-gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-2 col-md-6 single-footer-widget">
-					<h4>Top Products</h4>
-					<ul>
-						<li><a href="#">Managed Website</a></li>
-						<li><a href="#">Manage Reputation</a></li>
-						<li><a href="#">Power Tools</a></li>
-						<li><a href="#">Marketing Service</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-2 col-md-6 single-footer-widget">
-					<h4>Quick Links</h4>
-					<ul>
-						<li><a href="#">Jobs</a></li>
-						<li><a href="#">Brand Assets</a></li>
-						<li><a href="#">Investor Relations</a></li>
-						<li><a href="#">Terms of Service</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-2 col-md-6 single-footer-widget">
-					<h4>Features</h4>
-					<ul>
-						<li><a href="#">Jobs</a></li>
-						<li><a href="#">Brand Assets</a></li>
-						<li><a href="#">Investor Relations</a></li>
-						<li><a href="#">Terms of Service</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-2 col-md-6 single-footer-widget">
-					<h4>Resources</h4>
-					<ul>
-						<li><a href="#">Guides</a></li>
-						<li><a href="#">Research</a></li>
-						<li><a href="#">Experts</a></li>
-						<li><a href="#">Agencies</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-4 col-md-6 single-footer-widget">
-					<h4>Newsletter</h4>
-					<p>You can trust us. we only send promo offers,</p>
-					<div class="form-wrap" id="mc_embed_signup">
-						<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-						 method="get" class="form-inline">
-							<input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
-							 required="" type="email">
-							<button class="click-btn btn btn-default text-uppercase">subscribe</button>
-							<div style="position: absolute; left: -5000px;">
-								<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-							</div>
-
-							<div class="info"></div>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="footer-bottom row align-items-center">
-				<p class="footer-text m-0 col-lg-8 col-md-12">
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-				<div class="col-lg-4 col-md-12 footer-social">
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-dribbble"></i></a>
-				</div>
-			</div>
-		</div>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3 col-md-offset-1 single-footer-widget">
+                <h4>Top Courses</h4>
+                <ul>
+                    <li><a href="{% url 'courses:allcourse' %}">Data Structures and Algorithms C++</a></li>
+                    <li><a href="{% url 'courses:allcourse' %}">Competitive Programming BootCamp</a></li>
+                    <li><a href="{% url 'courses:allcourse' %}">Data Science</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3 single-footer-widget">
+                <h4>Features</h4>
+                <ul>
+                  <li>Discussion Forum</li>
+                  <li>One to One Mentorship</li>
+                  <li>Weekly Test and Quizzes</li>
+                </ul>
+              </div>
+              <div class="col-md-3 single-footer-widget">
+                <h4>External Resources</h4>
+                <ul>
+                  <li><a href="https://www.wolframalpha.com/">Wolfram Alpha</a></li>
+                  <li><a href="https://www.towardsdatascience.com/">Towards Data Science</a></li>
+                  <li><a href="https://www.quora.com/">Quora</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 single-footer-widget">
+                <h4>Address</h4>
+                <a href="mailto:adaptive.learning.innodev@gmail.com">Adaptive Learning</a>
+                <br>
+                <p>
+                    Motilal Nehru National Institute Of Technology, Teliarganj, Allahabad (208002)
+                </p>
+                
+              </div>
+          </div>
+          <br>
+          <br>
+          <div class="row justify-content-center align-items-center text-large p-0">
+              <big>Made With &nbsp;<span style="color: #e25555;">&#9829;</span> &nbsp; at MNNIT Allahabad</big>
+          </div>
+          <br>
+          <div class="row justify-content-center align-items-center text-large p-0">
+              <big>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</big>
+            </div>
+      </div>
 	</footer>
   <!-- ================ End footer Area ================= -->
 
