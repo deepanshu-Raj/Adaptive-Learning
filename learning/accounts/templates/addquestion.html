@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block banner %}
+<h1 class="text-white">
+            Add Quetions
+          </h1>
+          <p class="mx-auto text-white  mt-20 mb-40">
+            To quiz
+          </p>
+
+{% endblock %}
+
+{% block content %}
+
+
+        <div class="wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="span3">
+                        <div class="sidebar">
+
+                            <div class="module">
+                                <div class="module-head">
+                                    <h3>
+                                        Quizzes given by you</h3>
+                                </div>
+                                <br><br>
+                                <div class="module-body table">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display"
+                                        width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Quiz Name
+                                                </th>
+                                                <th>
+                                                    Course
+                                                </th>
+
+                                                <th>
+                                                    Add question
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for q in quiz %}
+                                            <tr class="odd gradeX">
+                                                <td>
+                                                    {{ q.title }}
+                                                </td>
+                                                <td>
+                                                    {{ q.info.name }}
+                                                </td>
+                                                 <td>
+                                                     <a class="btn text-uppercase" href="{% url 'quizzes:addques' q.id %}">Add question</a>
+                                                 </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                            <!--/.module-->
+                        </div>
+                        <!--/.content-->
+                    </div>
+                    <!--/.span9-->
+                </div>
+            </div>
+            <!--/.container-->
+        </div>
+
+{% endblock %}

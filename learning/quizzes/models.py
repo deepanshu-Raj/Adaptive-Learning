@@ -21,7 +21,7 @@ class CreateAssignment(models.Model):
 
 #for saving qiuz's data : Home Page - Quizhome
 class CreateQuiz_1(models.Model):
-	
+	author = models.ForeignKey(User,on_delete=models.CASCADE,blank=True, null=True)
 	info = models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
 	date = models.DateTimeField()
 	title = models.CharField(max_length=200,null=True,blank=False)
@@ -82,9 +82,16 @@ class Exam(models.Model):
 	o4 = models.CharField(max_length=100)
 	cans = models.CharField(max_length=100)
 
+	def __str__(self):
+		return self.quiz.title
+
+
 
 class Result(models.Model):
 	student = models.ForeignKey(User,on_delete=models.CASCADE, related_name='student')
 	quiz = models.ForeignKey(CreateQuiz_1,on_delete=models.CASCADE)
 	score = models.CharField(max_length=20)
 	teach = models.ForeignKey(User,on_delete=models.CASCADE,related_name='teach', blank=True, null=True)
+
+	def __str__(self):
+		return self.student.username+" "+self.quiz.title

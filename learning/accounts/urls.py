@@ -41,5 +41,6 @@ urlpatterns = [
     path('dashboard/', dashboard, name='dashboard'),
     path('quizteach/', quizteach, name='quizteach'),
     path('quizstu/', quizstu, name='quizstu'),
+    path('addquestion/', addquestion, name='addquestion'),
     
 ]
