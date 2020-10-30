@@ -179,7 +179,7 @@ def contactsave(request):
 
 def contact(request,stu_id):
     student = User.objects.filter(pk=stu_id).first()
-    return render(request, 'contact.html',{'student': student})
+    return render(request, 'contactstu.html',{'student': student})
 
 
 def stcontact(request):
