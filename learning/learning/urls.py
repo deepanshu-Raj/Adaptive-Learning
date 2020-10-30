@@ -15,6 +15,7 @@ urlpatterns = [
     path('courses/', include('courses.urls', namespace='courses')),
     path('discussions/', include('discussions.urls', namespace='discussions')),
     path('quizzes/', include('quizzes.urls', namespace='quizzes')),
+    path('leaderboard/', include('leaderboard.urls', namespace='leaderboard')),
     path('',include('django.contrib.auth.urls')),
 ]
 
