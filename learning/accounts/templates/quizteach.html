@@ -4,35 +4,13 @@
             Welcome back {{ request.user.username }}
           </h1>
           <p class="mx-auto text-white  mt-20 mb-40">
-
+            Quiz added by you
           </p>
 
 {% endblock %}
 
 {% block content %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 img">
-        <br><br>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvzOpl3-kqfNbPcA_u_qEZcSuvu5Je4Ce_FkTMMjxhB-J1wWin-Q"  alt="" class="img-rounded" style="border:rounded">
-    </div>
-    <div class="col-md-6 details">
-        <br><br>
-      <blockquote>
-        <h3>{{ det.fullname }}</h3>
-          <br>
-        <small><cite title="Source Title">{{ det.bio }}<i class="icon-map-marker"></i></cite></small>
-      </blockquote>
-      <p>
-        {{ det.mob }} <br>
-        {{ det.email }} <br>
-        {{ det.city }}
-      </p>
-    </div>
-  </div>
-</div>
-<br><br><br>
 
         <div class="wrapper">
             <div class="container">
@@ -43,7 +21,7 @@
                             <div class="module">
                                 <div class="module-head">
                                     <h3>
-                                        Course You are enrolled</h3>
+                                        Quizzes given by you</h3>
                                 </div>
                                 <br><br>
                                 <div class="module-body table">
@@ -52,36 +30,42 @@
                                         <thead>
                                             <tr>
                                                 <th>
-                                                    Name
+                                                    Quiz Name
                                                 </th>
                                                 <th>
-                                                    Date Enrolled
+                                                    Course
+                                                </th>
+                                                <th>
+                                                    Student's name
+                                                </th>
+                                                <th>
+                                                    Score
+                                                </th>
+                                                <th>
+                                                    Contact
                                                 </th>
 
-                                                <th>
-                                                    Subject
-                                                </th>
-                                                <th>
-                                                    Go to course
-                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        {% for cour in course %}
+                                        {% for q in quiz %}
                                             <tr class="odd gradeX">
                                                 <td>
-                                                    {{ cour.course.name }}
+                                                    {{ q.quiz.title }}
                                                 </td>
                                                 <td>
-                                                    {{ cour.date }}
+                                                    {{ q.quiz.info.name }}
                                                 </td>
 
                                                 <td class="center">
-                                                   {{ cour.course.subject }}
+                                                   {{ q.student.username }}
                                                 </td>
                                                 <td class="center">
-                                                     <a class="btn text-uppercase" href="{% url 'courses:detail' cour.course.id %}">View</a>
+                                                   {{ q.score }}
                                                 </td>
+                                                 <td>
+                                                     <a class="btn text-uppercase" href="{% url 'accounts:contact' q.student.id %}">Contact</a>
+                                                 </td>
                                             </tr>
                                         {% endfor %}
                                         </tbody>
@@ -98,5 +82,5 @@
             </div>
             <!--/.container-->
         </div>
-<a href="{% url 'quizzes:assignstu' %}" class="genric-btn default radius">See assignment</a>
+
 {% endblock %}

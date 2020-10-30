@@ -2,6 +2,9 @@ from django.db import models
 from courses.models import *
 from django.contrib.auth.models import User
 #1 for creating assignment
+from courses.models import Course
+
+
 class CreateAssignment(models.Model):
 
 	info = models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
@@ -54,7 +57,7 @@ class CreateQuiz_2(models.Model):
 
 
 class SubmitAssignment(models.Model):
-
+	course = models.ForeignKey(Course,on_delete=models.CASCADE, blank=True, null=True)
 	data = models.ForeignKey(CreateAssignment,on_delete=models.CASCADE,null=True)
 	studentResponse = models.FileField(null=True,blank=False)
 	student = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
@@ -79,7 +82,9 @@ class Exam(models.Model):
 	o4 = models.CharField(max_length=100)
 	cans = models.CharField(max_length=100)
 
+
 class Result(models.Model):
-	student = models.ForeignKey(User,on_delete=models.CASCADE)
+	student = models.ForeignKey(User,on_delete=models.CASCADE, related_name='student')
 	quiz = models.ForeignKey(CreateQuiz_1,on_delete=models.CASCADE)
 	score = models.CharField(max_length=20)
+	teach = models.ForeignKey(User,on_delete=models.CASCADE,related_name='teach', blank=True, null=True)

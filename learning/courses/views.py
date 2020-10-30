@@ -94,7 +94,8 @@ def submit(request,assign_id):
     sub = SubmitAssignment()
     sub.studentResponse = request.FILES['work']
     sub.data = assign
+    sub.course = assign.info
     sub.student = request.user
     sub.save()
     assign = CreateAssignment.objects.filter(pk=assign_id).first()
-    return render(request, 'assignment.html', {'assign': assign})
+    return redirect('accounts:dashstu')

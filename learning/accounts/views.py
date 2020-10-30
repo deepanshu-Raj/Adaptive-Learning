@@ -18,6 +18,12 @@ from .forms import *
 from courses.models import *
 import datetime
 
+from courses.models import Enroll, Course
+
+from quizzes.models import Result
+
+from quizzes.models import SubmitAssignment
+
 UserModel = get_user_model()
 
 #Signin - forgot password + signin with google accounts/github/linkedin accounts.
@@ -30,15 +36,21 @@ def login(request):
 
                 auth.login(request, user)
                 det = Userdetail.objects.filter(name=request.user).first()
-                courses = Course.objects.filter(author=request.user)
-                return render(request, 'dashboard.html', {'det': det, 'course':courses})
-            
+                if det.teacher == True:
+                    det = Userdetail.objects.filter(name=request.user).first()
+                    courses = Course.objects.filter(author=request.user)
+                    return render(request, 'dashboard.html', {'det': det, 'course': courses})
+                else:
+                    cour = Enroll.objects.filter(student=request.user)
+                    det = Userdetail.objects.filter(name=request.user).first()
+                    return render(request, 'studentdash.html', {'course': cour, 'det': det})
+
             #if username or password is incorrect.
             else:
                 return render(request, 'login.html',{
                     'message':'Username or Password is incorrect'
                     })
-        
+
         elif request.POST.get('signup'):
             return render(request,'register.html',{})
 
@@ -57,7 +69,7 @@ def Register(request):
         for user in User.objects.values_list('username'):
             user_list.append(user[0])
 
-         # if the username is already taken or not.   
+         # if the username is already taken or not.
         if request.POST['username'] in user_list:
             return render(request,'register.html',{
                     'user_exist':'Username is already taken'
@@ -72,7 +84,7 @@ def Register(request):
         else:
             return render(request,'register.html',{
                 'message_password':'password mismatch'
-                })    
+                })
 
         NewUser = User.objects.create_user(username=request.POST['username'],email=request.POST['mail'],
             first_name=request.POST['first_name'],last_name=request.POST['last_name'])
@@ -103,17 +115,17 @@ def Register(request):
         UD.bio = request.POST['bio']
         UD.email = request.POST['mail']
         UD.mob = request.POST['mob']
-        
+
         if request.POST['type'] == 'teacher':
             UD.teacher = True
         else:
             UD.teacher = False
-   
+
         UD.save()
         return render(request,'thanks.html',{
             'message':'Bingo!! Just one step to go.You may now go ahead and verify yourself with the verification link sent to your email-id',
             'user':request.POST['first_name']
-            })    
+            })
     else:
         return render(request,'register.html',{
 
@@ -143,14 +155,15 @@ def activate(request,uidb64,token):
 def coursedetail(request,course_id):
     cour = Course.objects.filter(pk=course_id).first()
     stu = Enroll.objects.filter(course=cour)
-    return render(request, 'coursedetail.html', {'course': cour, 'student': stu})
+    assign = SubmitAssignment.objects.filter(course=cour)
+    return render(request, 'coursedetail.html', {'course': cour, 'student': stu, 'assign': assign})
 
 
 def contactsave(request):
     if request.method == 'POST':
         stu = User.objects.filter(pk=request.POST['student']).first()
         cc = Contact()
-        cc.student = stu
+        cc.stu = stu
         cc.teacher = request.user
         cc.date = datetime.datetime.now().date()
         cc.subject = request.POST['sub']
@@ -167,5 +180,36 @@ def contact(request,stu_id):
 
 
 def stcontact(request):
-    allPost = Contact.objects.filter(student=request.user)
+    allPost = Contact.objects.filter(stu=request.user)
     return render(request, 'stcontact.html', {'allPost': allPost})
+
+
+def dashstu(request):
+    cour = Enroll.objects.filter(student=request.user)
+    det = Userdetail.objects.filter(name=request.user).first()
+    return render(request, 'studentdash.html',{'course': cour, 'det':det})
+
+
+def dashteach(request):
+    det = Userdetail.objects.filter(name=request.user).first()
+    courses = Course.objects.filter(author=request.user)
+    return render(request, 'dashboard.html', {'det': det, 'course': courses})
+
+
+def quizteach(request):
+    quiz =Result.objects.filter(teach=request.user)
+    return render(request, 'quizteach.html', {'quiz': quiz})
+
+
+def quizstu(request):
+    quiz= Result.objects.filter(student=request.user)
+    return render(request, 'quizstu.html', {'quiz': quiz})
+
+
+
+def dashboard(request):
+    ud = Userdetail.objects.filter(name=request.user).first()
+    if ud.teacher == True:
+        return redirect('accounts:dashteach')
+    else:
+        return redirect('accounts:dashstu')

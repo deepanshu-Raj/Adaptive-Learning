@@ -95,7 +95,28 @@ def storeresult(request):
 	res.student = request.user
 	quiz = CreateQuiz_1.objects.filter(pk=request.POST['quiz_id']).first()
 	res.quiz =quiz
+	teacher= quiz.info.author
+	res.teach = teacher
 	res.score = request.POST['score']
 	res.save()
+	return redirect('accounts:dashstu')
+
+def addquestion(request, quiz_id):
+	cc = Exam()
+	quiz = CreateQuiz_1.objects.filter(pk=quiz_id)
+	cc.quiz = quiz
+	cc.qno = request.POST['qno']
+	cc.ques = request.POST['ques']
+	cc.o1 = request.POST['o1']
+	cc.o2= request.POST['o2']
+	cc.o3 = request.POST['o3']
+	cc.o4 = request.POST['o4']
+	cc.cans = request.POST['cans']
+	cc.save()
+	return render(request, 'quizMain.html', {'quiz': quiz})
 
 
+
+def assignstu(request):
+	assign = SubmitAssignment.objects.filter(student=request.user)
+	return render(request, 'assignstu.html',{'assign': assign})
