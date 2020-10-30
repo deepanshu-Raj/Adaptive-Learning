@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block banner %}
+    <h1 class="text-white">
+                LeaderBoard
+    </h1>
+    <p class="mx-auto text-white  mt-20 mb-40">
+        See where you stand
+    </p>
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-3 table-responsive">
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+              <th><h1><span><b>UserName</b></span></h1></th>
+              <th><h1><span><b>Email Address</b></span></h1></th>
+              <th><h1><span><b>Coins</b></span></h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>
+                        <h3>{{user.user.username}}</h3>
+                    </td>
+                    <td>
+                        <h3>{{user.user.email}}</h3>
+                    </td>
+                    <td>
+                        <h3>{{user.coins}}</h3>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

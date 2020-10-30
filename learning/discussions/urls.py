@@ -5,6 +5,7 @@ from . import views
 app_name = 'discussions'
 
 urlpatterns = [
+    path('upvote', views.upVote, name="upVote"),
     path('postComment', views.postComment, name="postComment"),
     path('createPost', views.createPost, name="createPost"),
     path('newPost', views.newPost, name="newPost"),

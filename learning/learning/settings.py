@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'courses',
     'discussions',
     'quizzes',
+<<<<<<< HEAD
+    'django_extensions',
+=======
+    'leaderboard',
+>>>>>>> 1661c79b0168fd90a768a2199f61f41dee298f39
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
