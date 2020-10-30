@@ -11,4 +11,6 @@ urlpatterns = [
     path('submitAssignment/',submitAssignment,name='sassgn'),
     path('takequiz/<int:quiz_id>/', takequiz, name='takequiz'),
     path('storeresult', storeresult, name='storeresult'),
+    path('addquestion/<int:quiz_id>/', addquestion, name='addquestion'),
+    path('assignstu', assignstu, name='assignstu'),
 ]

@@ -15,46 +15,51 @@
 
         <br><br>
         <div class="card-body px-lg-5 pt-0">
-            <form action="{% url 'quizzes:qmain' %}" method="post" >
+            <form action="{% url 'quizzes:addquestion' quiz.id %}" method="post" >
                 {% csrf_token %}
-
+                <div class="form-group row">
+                  <label for="qnumber" class="col-2 col-form-label">Question No.</label>
+                  <div class="col-10">
+                    <textarea class="form-control" id="qnumber" rows="2" name="qno" placeholder="Question no" required></textarea>
+                  </div>
+                </div>
                 <div class="form-group">
                     <label for="exampleTextarea">Question</label>
-                    <textarea class="form-control" id="exampleTextarea" rows="3" name="question" placeholder="Your Question Goes Here" required></textarea>
+                    <textarea class="form-control" id="exampleTextarea" rows="3" name="ques" placeholder="Your Question Goes Here" required></textarea>
                 </div>
 
                 <div class="form-group row">
                   <label for="exampleTextarea1" class="col-2 col-form-label">Option A</label>
                   <div class="col-10">
-                  <textarea class="form-control" id="exampleTextarea1" rows="2" name="option1" placeholder="Option A" required></textarea>
+                  <textarea class="form-control" id="exampleTextarea1" rows="2" name="o1" placeholder="Option A" required></textarea>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <label for="exampleTextarea2" class="col-2 col-form-label">Option B</label>
                   <div class="col-10">
-                    <textarea class="form-control" id="exampleTextarea2" rows="2" name="option2" placeholder="Option B" required></textarea>
+                    <textarea class="form-control" id="exampleTextarea2" rows="2" name="o2" placeholder="Option B" required></textarea>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <label for="exampleTextarea3" class="col-2 col-form-label">Option C</label>
                   <div class="col-10">
-                    <textarea class="form-control" id="exampleTextarea3" rows="2" name="option3" placeholder="Option C" required></textarea>
+                    <textarea class="form-control" id="exampleTextarea3" rows="2" name="o3" placeholder="Option C" required></textarea>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <label for="exampleTextarea4" class="col-2 col-form-label">Option D</label>
                   <div class="col-10">
-                    <textarea class="form-control" id="exampleTextarea4" rows="2" name="option4" placeholder="Option D" required></textarea>
+                    <textarea class="form-control" id="exampleTextarea4" rows="2" name="o4" placeholder="Option D" required></textarea>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <label for="exampleTextarea5" class="col-2 col-form-label">Correct answer</label>
                   <div class="col-10">
-                    <textarea class="form-control" id="exampleTextarea5" rows="2" name="correct" placeholder="Option D" required></textarea>
+                    <textarea class="form-control" id="exampleTextarea5" rows="2" name="cans" placeholder="Option D" required></textarea>
                   </div>
                 </div>
 

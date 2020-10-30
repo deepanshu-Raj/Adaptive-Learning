@@ -34,6 +34,12 @@ urlpatterns = [
 
     path('reset/done/',
         PasswordResetCompleteView.as_view(template_name='password_reset_done.html'),
-        name='password_reset_complete')
+        name='password_reset_complete'),
+
+    path('dashstu/', dashstu, name='dashstu'),
+    path('dashteach/', dashteach, name='dashteach'),
+    path('dashboard/', dashboard, name='dashboard'),
+    path('quizteach/', quizteach, name='quizteach'),
+    path('quizstu/', quizstu, name='quizstu'),
     
 ]

@@ -54,10 +54,12 @@
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="lnr lnr-menu"></span>
         </button>
+
         {% if user.is_authenticated %}
             <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
               <ul class="navbar-nav">
                 <li><a href="{% url 'home' %}">Home</a></li>
+                  <li><a href="{% url 'accounts:dashboard' %}">Dashboard</a></li>
                 <li><a href="{% url 'courses:allcourse' %}">Courses</a></li>
                 <li><a href="{% url 'discussions:discussionHome' %}">Discussion Forum</a></li>
                 <li><a href="{% url 'about' %}">About US</a></li>

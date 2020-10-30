@@ -18,7 +18,7 @@ class Userdetail(models.Model):
         return self.email
 
 class Contact(models.Model):
-    student = models.ForeignKey(User, related_name='student', on_delete=models.CASCADE)
+    stu = models.ForeignKey(User, related_name='stu', on_delete=models.CASCADE,blank=True, null=True)
     teacher = models.ForeignKey(User, related_name='teacher', on_delete=models.CASCADE)
     date = models.DateTimeField()
     subject = models.CharField(max_length=50)
