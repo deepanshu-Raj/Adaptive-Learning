@@ -33,7 +33,9 @@
   </div>
 </div>
 <br><br><br>
-
+<div class="container">
+    <div class="row">
+    <div class="col-md-8">
         <div class="wrapper">
             <div class="container">
                 <div class="row">
@@ -102,13 +104,19 @@
             </div>
             <!--/.container-->
         </div>
-
-
-<a href="{% url 'courses:addcourse' %}" class="genric-btn default radius">Add Course or material</a>
+    </div>
+    <div class="col-md-4">
+<div class="container">
+<a href="{% url 'courses:addcourse' %}" class="btn btn-block btn-outline btn-success">Add Course or material</a>
 <br>
 <br>
-<a href="{% url 'quizzes:qhome' %}" class="genric-btn default radius">Add quiz</a>
-<a href="#" class="genric-btn default radius">Add question to quiz</a>
-<a href="#" class="genric-btn default radius">See assignment of students</a>
-<a href="{% url 'accounts:quizteach' %}" class="genric-btn default radius">View Quiz reports</a>
+<a href="{% url 'quizzes:qhome' %}" class="btn btn-block btn-outline btn-primary">Add quiz</a><br><br>
+<a href="#" class="btn btn-outline btn-block btn-warning">Add question to quiz</a><br><br>
+    <a href="{% url 'quizzes:cassgn' %}" class="btn btn-block btn-outline btn-info">Add assignment</a><br><br>
+<a href="{% url 'accounts:quizteach' %}" class="btn btn-block btn-outline btn-danger">View Quiz reports</a>
+    <br><br><br>
+</div>
+</div>
+</div>
+</div>
 {% endblock %}

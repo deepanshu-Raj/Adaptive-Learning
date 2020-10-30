@@ -12,6 +12,9 @@ class Post(models.Model):
     views = models.IntegerField(default=0)
     timeStamp = models.DateTimeField(default=now)
 
+    class Meta:
+        ordering = ['-timeStamp']
+
     def __str__(self):
         return  self.title + ' by ' + self.author
 
@@ -25,3 +28,13 @@ class BlogComment(models.Model):
 
     def __str__(self):
         return self.comment[0:13] + "..." + "by" + " " + self.user.username
+
+class Reward(models.Model):
+    sno = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    coins = models.IntegerField(default=0)
+    class Meta:
+        ordering = ['-coins']
+
+    def __str__(self):
+        return self.user.username + " " + str(self.coins)

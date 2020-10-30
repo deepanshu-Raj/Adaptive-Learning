@@ -33,7 +33,9 @@
   </div>
 </div>
 <br><br><br>
-
+<div class="container">
+    <div class="row">
+    <div class="col-md-8">
         <div class="wrapper">
             <div class="container">
                 <div class="row">
@@ -98,5 +100,14 @@
             </div>
             <!--/.container-->
         </div>
-<a href="{% url 'quizzes:assignstu' %}" class="genric-btn default radius">See assignment</a>
+    </div>
+    <div class="col-md-4">
+<div class="container">
+<a href="{% url 'quizzes:assignstu' %}" class="btn btn-block btn-outline btn-primary">See assignment</a><br><br>
+<a href="{% url 'accounts:quizstu' %}" class="btn btn-block btn-outline btn-success">See quizzes</a><br><br>
+<a href="{% url 'accounts:stcontact' %}" class="btn btn-block btn-outline btn-danger">See Remarks</a><br><br>
+</div>
+</div>
+</div>
+</div>
 {% endblock %}
