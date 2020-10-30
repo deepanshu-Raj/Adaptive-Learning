@@ -45,6 +45,7 @@
             <form action="/discussions/upvote" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="Sno" value="{{comment.sno}}" />
+                <input type="hidden" name="Slug" value="{{post.slug}}" />
                 <button type="submit" class="btn btn-success btn-circle"><img class="rounded mx-auto d-block w-100 p-2" src="/static/img/comment-voteup-blue.png"  alt="user"></button>
             </form>
             

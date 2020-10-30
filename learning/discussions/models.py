@@ -12,6 +12,9 @@ class Post(models.Model):
     views = models.IntegerField(default=0)
     timeStamp = models.DateTimeField(default=now)
 
+    class Meta:
+        ordering = ['-timeStamp']
+
     def __str__(self):
         return  self.title + ' by ' + self.author
 
