@@ -12,7 +12,7 @@ from quizzes.models import CreateAssignment
 
 from quizzes.models import SubmitAssignment
 
-
+@login_required
 def allcourse(request):
     query = request.GET.get('q', None)
     if query:
@@ -80,15 +80,15 @@ def courmat(request, course_id):
     test = CreateQuiz_1.objects.filter(info=cour)
     return render(request,'courmat.html', {'course':cour, 'material': material, 'tests': test, 'assign': assign})
 
-
+@login_required
 def show(request, file_id):
     file = Material.objects.filter(pk=file_id).first()
     return render(request, 'show.html', {'mat': file})
-
+@login_required
 def assignment(request,assign_id):
     assign = CreateAssignment.objects.filter(pk=assign_id).first()
     return render(request, 'assignment.html', {'assign': assign})
-
+@login_required
 def submit(request,assign_id):
     assign = CreateAssignment.objects.filter(pk=assign_id).first()
     sub = SubmitAssignment()

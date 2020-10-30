@@ -71,6 +71,7 @@
         {% else %}
             <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
               <ul class="navbar-nav">
+                  <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'accounts:register' %}">Register</a></li>
                 <li><a href="{% url 'accounts:login' %}">Log IN</a></li>
                 <li><a href="{% url 'about' %}">About US</a></li>

@@ -37,11 +37,10 @@ INSTALLED_APPS = [
     'courses',
     'discussions',
     'quizzes',
-<<<<<<< HEAD
+
     'django_extensions',
-=======
+
     'leaderboard',
->>>>>>> 1661c79b0168fd90a768a2199f61f41dee298f39
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -139,7 +138,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'learning/static/')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGIN_URL = 'courses:allcourse'
+LOGIN_URL = 'home'
 
 #SMTP configs : Simple mail transfer Protocol : for password reset.
 

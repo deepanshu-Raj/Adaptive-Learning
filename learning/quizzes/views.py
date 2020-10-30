@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import *
 from courses.models import *
-
+from django.contrib.auth.decorators import login_required
 #Teacher's end for assignment creation.
+@login_required
 def createAssignment(request):
 	if request.method == 'POST':
 		CA = CreateAssignment()
@@ -23,6 +24,7 @@ def createAssignment(request):
 			})
 
 # Home page for the quiz - complete
+@login_required
 def QuizHome(request):
 	if request.method == 'POST':
 		CQ1 = CreateQuiz_1()
@@ -31,6 +33,7 @@ def QuizHome(request):
 		CQ1.title = request.POST['title']
 		CQ1.desc = request.POST['desc']
 		CQ1.data = Course.objects.filter(name = request.POST['info']).first()
+		CQ1.author = request.user
 		CQ1.save()
 		return render(request,'quizHome.html',{
 			'message':'Your Data has been saved successfully!! Now, You can Now Add problems!!'
@@ -43,6 +46,7 @@ def QuizHome(request):
 #pass data successfully added message here.
 
 #You need to link the user seeting the quiz!!  - !!ISSUE!!
+@login_required
 def QuizMain(request):
 	if request.method == 'POST':
 		CQ2 = CreateQuiz_2()
@@ -80,16 +84,16 @@ def QuizMain(request):
 		return render(request,'quizMain.html',{
 
 			})
-
+@login_required
 def submitAssignment(request):
 	return render(request,'submitAssignment.html',{})
 
-
+@login_required
 def takequiz(request, quiz_id):
 	quiz = CreateQuiz_1.objects.filter(pk=quiz_id).first();
 	question = Exam.objects.filter(quiz=quiz)
 	return render(request, 'quiz.html',{'questions': question, 'quiz': quiz})
-
+@login_required
 def storeresult(request):
 	res = Result()
 	res.student = request.user
@@ -100,23 +104,26 @@ def storeresult(request):
 	res.score = request.POST['score']
 	res.save()
 	return redirect('accounts:dashstu')
-
-def addquestion(request, quiz_id):
-	cc = Exam()
-	quiz = CreateQuiz_1.objects.filter(pk=quiz_id)
-	cc.quiz = quiz
-	cc.qno = request.POST['qno']
-	cc.ques = request.POST['ques']
-	cc.o1 = request.POST['o1']
-	cc.o2= request.POST['o2']
-	cc.o3 = request.POST['o3']
-	cc.o4 = request.POST['o4']
-	cc.cans = request.POST['cans']
-	cc.save()
+@login_required
+def addques(request, quiz_id):
+	print('HELLLLOOOOOO')
+	if request.method == 'post':
+		cc = Exam()
+		quiz = CreateQuiz_1.objects.filter(pk=quiz_id).first()
+		cc.quiz = quiz
+		cc.qno = request.POST['qno']
+		cc.ques = request.POST['ques']
+		cc.o1 = request.POST['o1']
+		cc.o2= request.POST['o2']
+		cc.o3 = request.POST['o3']
+		cc.o4 = request.POST['o4']
+		cc.cans = request.POST['cans']
+		cc.save()
+	quiz = CreateQuiz_1.objects.filter(pk=quiz_id).first()
 	return render(request, 'quizMain.html', {'quiz': quiz})
 
 
-
+@login_required
 def assignstu(request):
 	assign = SubmitAssignment.objects.filter(student=request.user)
 	return render(request, 'assignstu.html',{'assign': assign})

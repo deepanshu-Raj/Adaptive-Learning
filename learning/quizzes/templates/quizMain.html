@@ -15,7 +15,7 @@
 
         <br><br>
         <div class="card-body px-lg-5 pt-0">
-            <form action="{% url 'quizzes:addquestion' quiz.id %}" method="post" >
+            <form action="{% url 'quizzes:addques' quiz.id %}" method="post" >
                 {% csrf_token %}
                 <div class="form-group row">
                   <label for="qnumber" class="col-2 col-form-label">Question No.</label>
@@ -63,9 +63,8 @@
                   </div>
                 </div>
 
-                <button class="btn btn-rounded btn-primary btn-block z-depth-0 my-4 waves-effect" type="submit" name="save" value="save">+ Save and Add Another</button>
+                <button class="btn btn-rounded btn-primary btn-block z-depth-0 my-4 waves-effect" type="submit" name="save" value="save">Save and Add Another</button>
 
-                <button class="btn btn-rounded btn-success btn-block z-depth-0 my-4 waves-effect" type="submit" name="exit" value="exit">+ Save and Exit</button>
 
             </form>
         </div>
