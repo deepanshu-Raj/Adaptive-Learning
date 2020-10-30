@@ -68,9 +68,11 @@ def createPost(request):
 def upVote(request):
     if request.method == 'POST':
         Sno = request.POST.get('Sno')
+        slug = request.POST.get('Slug')
         comment = BlogComment.objects.get(sno=Sno)
         user = comment.user
         reward = Reward.objects.get(user = user)
         reward.coins = reward.coins + 1
         reward.save()
+        return redirect(f"/discussions/{slug}")
     return redirect(f"/discussions")
