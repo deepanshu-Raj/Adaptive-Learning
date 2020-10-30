@@ -9,7 +9,7 @@ def home(request):
 def aboutUs(request):
 	return render(request,'about.html',{})
 
-def Contact(request):
+def Contactus(request):
 	if request.method == 'POST':
 		#work for it's backend !!
 		return render(request,'../accounts/templates/thanks.html',{

@@ -17,7 +17,7 @@
   <!-- meta character set -->
   <meta charset="UTF-8" />
   <!-- Site Title -->
-  <title>Adaptive Learning</title>
+  <title>EDUSQUAD</title>
 
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Roboto:400,400i,500,700" rel="stylesheet" />
   <!--
@@ -52,7 +52,7 @@
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="lnr lnr-menu"></span>
+          <span class="lnr lnr-menu"> EDUSQUAD </span>
         </button>
 
         {% if user.is_authenticated %}
@@ -63,7 +63,7 @@
                 <li><a href="{% url 'courses:allcourse' %}">Courses</a></li>
                 <li><a href="{% url 'discussions:discussionHome' %}">Discussion Forum</a></li>
                 <li><a href="{% url 'about' %}">About US</a></li>
-                <li><a href="{% url 'contact' %}">Contact US</a></li>
+                <li><a href="{% url 'contactus' %}">Contact US</a></li>
                 <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
               </ul>
             </div>
@@ -73,7 +73,7 @@
                 <li><a href="{% url 'accounts:register' %}">Register</a></li>
                 <li><a href="{% url 'accounts:login' %}">Log IN</a></li>
                 <li><a href="{% url 'about' %}">About US</a></li>
-                <li><a href="{% url 'contact' %}">Contact US</a></li>
+                <li><a href="{% url 'contactus' %}">Contact US</a></li>
               </ul>
             </div>
         {% endif %}
