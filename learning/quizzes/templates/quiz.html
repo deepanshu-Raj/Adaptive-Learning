@@ -47,25 +47,27 @@
     $(document).
 </script>
 <div class="container">
+    <h1 style="text-align:center;font-family:Times New Roman"> {{ quiz.title }} Quiz</h1>
+    <br><br><br>
     {% for q in questions %}
     <table>
         <tr>
-            <td>{{ q.ques }} ?</td>
+            <td><h3 style="color:green">{{ q.ques }} ?</h3></td>
         </tr>
         <tr>
-            <td><input type="radio" class="rb" name="{{ q.qno }}" id="o1" value="{{ q.o1 }}">{{ q.o1 }} </td>
+            <td><input type="radio" class="rb" name="{{ q.qno }}" id="o1" value="{{ q.o1 }}"> {{ q.o1 }} </td>
             <td><input type="text" hidden value="{{ q.cans }}"></td>
         </tr>
         <tr>
-            <td><input type="radio" class="rb" name="{{ q.qno }}" id="o2" value="{{ q.o2 }}">{{ q.o2 }} </td>
+            <td><input type="radio" class="rb" name="{{ q.qno }}" id="o2" value="{{ q.o2 }}"> {{ q.o2 }} </td>
             <td><input type="text" hidden value="{{ q.cans }}"></td>
         </tr>
         <tr>
-            <td><input type="radio" class="rb" name="{{ q.qno }}" id="o3" value="{{ q.o3 }}">{{ q.o3 }} </td>
+            <td><input type="radio" class="rb" name="{{ q.qno }}" id="o3" value="{{ q.o3 }}"> {{ q.o3 }} </td>
             <td><input type="text" hidden value="{{ q.cans }}"></td>
         </tr>
         <tr>
-            <td><input type="radio" class="rb" id="o4" name="{{ q.qno }}" value="{{ q.o4 }}">{{ q.o4 }} </td>
+            <td><input type="radio" class="rb" id="o4" name="{{ q.qno }}" value="{{ q.o4 }}"> {{ q.o4 }} </td>
             <td><input type="text" hidden value="{{ q.cans }}"></td>
         </tr>
         <tr>
@@ -74,12 +76,16 @@
     </table>
     <hr>
     {% endfor %}
-    <input type="submit" value="Finalize" id="but1" onclick="getanswers()"/>
+    <div class="col-md-4">
+    <input type="submit" class="btn btn-block btn-outline btn-success" value="Completed" id="but1" onclick="getanswers()"/>
+
+        <br><br>
     <form action="{% url 'quizzes:storeresult' %}" method="POST">
         {% csrf_token %}
         <input type="text" hidden name="score" value="" id="score">
         <input type="text" hidden name="quiz_id" value="{{ quiz.id }}">
-        <input type="submit" value="SUBMIT TEST">
+        <input type="submit" class="btn btn-block btn-outline btn-primary" value="SUBMIT TEST">
     </form>
+    </div>
 </div>
 {% endblock %}

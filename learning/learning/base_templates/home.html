@@ -1,40 +1,107 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block banner %}
+<div class="col-lg-5 col-md-8 home-banner-left">
+          <h1 class="text-white">
+           Edusquad
+          </h1>
+          <p class="mx-auto text-white  mt-20 mb-40">
+            In the history of modern astronomy, there is probably no one
+            greater leap forward than the building and launch of the space
+            Hubble.
+          </p>
+        </div>
 
+{% endblock %}
 {% block content %}
 
+<br><br><br><br><br>
 
 
+  <section class="feature-area">
+    <div class="container-fluid">
+      <div class="feature-inner row">
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex">
+            <i class="ti-book"></i>
+            <div class="ml-20">
+              <h4>New teachers</h4>
+              <p>
+                We have many new teachers who are highly qualified and very much educated to provide
+                  world class education to students all over the world.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex">
+            <i class="ti-cup"></i>
+            <div class="ml-20">
+              <h4>Top Courses</h4>
+              <p>
+                We have more than 10 courses being added every hour by some of the
+                  world class mentors from all over the world.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex border-right-0">
+            <i class="ti-desktop"></i>
+            <div class="ml-20">
+              <h4>Full E-Books</h4>
+              <p>
+                All our courses provide e-books and word dcouments which  can be easily downloaded by the students and
+                  view any time with out the avaialbility of net connections.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div id="piechart"></div>
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-<script type="text/javascript">
-// Load google charts
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-// Draw the chart and set the chart values
-function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-  {% for cour in course %}
-
-  ["{{ cour.name }}", "{{ cour.count }}"],
-  {% endfor %}
-]);
-
-  // Optional; add a title and set the width and height of the chart
-  var options = {'title':'My Average Day', 'width':550, 'height':400};
-
-  // Display the chart inside the <div> element with id="piechart"
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-  chart.draw(data, options);
-}
-</script>
-
-
-
-
+<section class="about-area section-gap">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-lg-5 col-md-6 about-left">
+          <img class="img-fluid" src="{% static 'img/about-img.png' %}" alt="">
+        </div>
+        <div class="offset-lg-1 col-lg-5 col-md-12 about-right">
+          <h1>
+            Over all <br>
+            2500 Courses <br>
+            from 20 Platforms
+          </h1>
+          <div>
+            <p>
+              There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope.
+              It’s exciting to think about setting up your own viewing station. In the life of any aspiring astronomer
+              that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing
+              station.
+            </p>
+            <p>
+              It’s exciting to think about setting up your own viewing station. In the life of any aspiring astronomer
+              that it is time to buy that first telescope exciting is time to buy that first.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% if not user.is_authenticated %}
+<div class="container" >
+    <h2 style="color:grey">To explore more please login or create an account with us.</h2>
+        <br><br>
+    <div class="row">
+    <div class="col-md-3">
+       <a href="{% url 'accounts:login' %}" class="btn btn-block btn-outline btn-primary">Log IN</a></li>
+    </div>
+    <div class="offset-2 col-md-3">
+        <a href="{% url 'accounts:register' %}" class="btn btn-block btn-outline btn-success">Register</a>
+    </div>
+    </div>
+</div>
+{% endif %}
 
 {% endblock %}

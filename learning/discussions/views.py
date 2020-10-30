@@ -5,12 +5,15 @@ from django.contrib.auth.models import User
 from discussions.templatetags import extras
 from django.utils.timezone import now
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def discussionHome(request):
     allPosts = Post.objects.all() 
     context = {'allPosts': allPosts}
     return render(request, 'discussion_home.html', context)
-
+@login_required
 def discussionPost(request, slug): 
     post=Post.objects.filter(slug=slug).first()
     post.views = post.views + 1
@@ -25,7 +28,7 @@ def discussionPost(request, slug):
             replyDict[reply.parent.sno].append(reply)
     context={'post':post, 'comments': comments, 'user': request.user, 'replyDict' : replyDict}
     return render(request, 'discussion_detail.html', context)
-
+@login_required
 def postComment(request):
     if request.method == "POST":
         comment=request.POST.get('comment')
@@ -44,10 +47,10 @@ def postComment(request):
             messages.success(request, "Your reply has been posted successfully")
         
     return redirect(f"/discussions/{post.slug}")
-
+@login_required
 def newPost(request):
     return render(request, 'new_discussion.html')
-
+@login_required
 def createPost(request):
     if request.method == "POST":
         content = request.POST.get('content')

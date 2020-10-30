@@ -17,12 +17,14 @@ from .models import *
 from .forms import *
 from courses.models import *
 import datetime
-
+from django.contrib.auth.decorators import login_required
 from courses.models import Enroll, Course
 
 from quizzes.models import Result
 
 from quizzes.models import SubmitAssignment
+
+from quizzes.models import CreateQuiz_1
 
 UserModel = get_user_model()
 
@@ -154,14 +156,14 @@ def activate(request,uidb64,token):
             'error_message':'Activation Link Is Invalid!!'
             })
 
-
+@login_required
 def coursedetail(request,course_id):
     cour = Course.objects.filter(pk=course_id).first()
     stu = Enroll.objects.filter(course=cour)
     assign = SubmitAssignment.objects.filter(course=cour)
     return render(request, 'coursedetail.html', {'course': cour, 'student': stu, 'assign': assign})
 
-
+@login_required
 def contactsave(request):
     if request.method == 'POST':
         stu = User.objects.filter(pk=request.POST['student']).first()
@@ -176,43 +178,47 @@ def contactsave(request):
         courses = Course.objects.filter(author=request.user)
         return render(request, 'dashboard.html', {'det': det, 'course': courses})
 
-
+@login_required
 def contact(request,stu_id):
     student = User.objects.filter(pk=stu_id).first()
     return render(request, 'contactstu.html',{'student': student})
 
-
+@login_required
 def stcontact(request):
     allPost = Contact.objects.filter(stu=request.user)
     return render(request, 'stcontact.html', {'allPost': allPost})
 
-
+@login_required
 def dashstu(request):
     cour = Enroll.objects.filter(student=request.user)
     det = Userdetail.objects.filter(name=request.user).first()
     return render(request, 'studentdash.html',{'course': cour, 'det':det})
 
-
+@login_required
 def dashteach(request):
     det = Userdetail.objects.filter(name=request.user).first()
     courses = Course.objects.filter(author=request.user)
     return render(request, 'dashboard.html', {'det': det, 'course': courses})
 
-
+@login_required
 def quizteach(request):
     quiz =Result.objects.filter(teach=request.user)
     return render(request, 'quizteach.html', {'quiz': quiz})
 
-
+@login_required
 def quizstu(request):
     quiz= Result.objects.filter(student=request.user)
     return render(request, 'quizstu.html', {'quiz': quiz})
 
 
-
+@login_required
 def dashboard(request):
     ud = Userdetail.objects.filter(name=request.user).first()
     if ud.teacher == True:
         return redirect('accounts:dashteach')
     else:
         return redirect('accounts:dashstu')
+@login_required
+def addquestion(request):
+    quiz = CreateQuiz_1.objects.filter(author=request.user)
+    return render(request, 'addquestion.html', {'quiz': quiz})
