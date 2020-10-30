@@ -11,6 +11,7 @@ urlpatterns = [
     #one for logout also!!
     path('',login, name='login'),
     path('register/', Register, name='register'),
+    path('logout/', logout, name='logout'),
     
     path('coursedetail/<int:course_id>/',coursedetail, name='coursedetail'),
     path('contact/<int:stu_id>/',contact, name='contact'),
