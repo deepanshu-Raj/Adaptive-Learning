@@ -57,3 +57,50 @@ doubts of their peers are also rewarded with virtual coins. This will enhance pe
 learning among students.</h3>
 </pre>
 <hr>
+
+## Features Implemented :
+<pre>
+<strong>
+          - Login and signup features for both students and teachers with email-verification.
+          
+          - Feature of Reset password with a registered mail-id.
+
+          - Interactive Teacher's Dashboard and Student's Dashboard.
+
+          - Reward and Recognition System
+
+                 * Implemented through a discussion Forum, with an upvote system and coins allotment as a 
+                   reward . We have also maintained a leaderboard to help identify the worthy candidate for a 
+                   future discount.
+
+         - Discussion Forum
+         
+         - Implemented recommender system (did not integrate to the website).
+</strong>
+</pre>
+## Future Prospect :
+<pre>
+<strong>
+         - Implement Chatbot to enhance the interactivity of the website. (assemble it with the 
+            recommender system, to enhance the User experience).
+        
+         - Implement a payment subroutine, so that a teacher can make a course paid if he/she wills to do 
+            so.
+
+         - Discount system : special discount to the students with a higher position on the leaderboard. 
+</strong>
+</pre>
+
+## Tech Stack :
+<pre>
+<strong>
+         - Python.
+         - Django.
+         - HTML.
+         - CSS.
+         - Bootstrap.
+         - Sqlite3
+         - Recommender System via KNN.
+         - Web scrapping Using Selenium.
+</pre>
+</strong>
